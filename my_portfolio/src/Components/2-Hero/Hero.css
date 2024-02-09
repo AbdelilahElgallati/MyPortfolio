@@ -73,6 +73,10 @@ section.hero .all-icons{
   
 }
 
+section.hero .all-icons .icon{
+  color: var(--subtitle);
+}
+
 section.hero .all-icons .icon:hover{
   font-size: 1.4rem;
   transition: 0.3s;

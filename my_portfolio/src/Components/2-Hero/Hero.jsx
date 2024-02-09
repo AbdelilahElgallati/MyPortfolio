@@ -39,16 +39,42 @@ const Hero = () => {
           Web Developper
         </motion.h1>
         <p className="sub-title">
-          I am Abdelilah Elgallati, a student in the professional license program of Computer Systems and Software Engineering at the Higher School of Technology in Essaouira. I have experience in web development through internships and advanced skills in coding languages, databases, operating systems, and designing and using various software. My proficiency in Arabic, French, and English facilitates communication, while my passions for football, swimming, and coding drive my interests.
+          I am Abdelilah Elgallati, a student in the professional license
+          program of Computer Systems and Software Engineering at the Higher
+          School of Technology in Essaouira. I have experience in web
+          development through internships and advanced skills in coding
+          languages, databases, operating systems, and designing and using
+          various software. My proficiency in Arabic, French, and English
+          facilitates communication, while my passions for football, swimming,
+          and coding drive my interests.
         </p>
-        
+
         <div className="all-icons flex">
           {/* <Link className="icon " to=""><div className="icon icon-twitter"></div></Link> */}
-          <div className="icon icon-instagram"><Link target="_blank" to="https://www.instagram.com/elgallatiabdelilah/"></Link></div>
-          <div className="icon icon-github"><Link target="_blank" to="https://github.com/AbdelilahElgallati"></Link></div>
-          <div className="icon icon-linkedin"><Link target="_blank" to="https://www.linkedin.com/in/abdelilah-elgallati/"></Link></div>
+
+          <Link
+            className="link"
+            target="_blank"
+            to="https://www.instagram.com/elgallatiabdelilah/"
+          >
+            <div className="icon icon-instagram"></div>
+          </Link>
+
+          <Link className="link" target="_blank" to="https://github.com/AbdelilahElgallati">
+            <div className="icon icon-github"></div>
+          </Link>
+
+          <Link
+            className="link"
+            target="_blank"
+            to="https://www.linkedin.com/in/abdelilah-elgallati/"
+          >
+            <div className="icon icon-linkedin"></div>
+          </Link>
         </div>
-        <button onClick={handleDownload} style={{ marginTop: "20px" }}>download my CV</button>
+        <button onClick={handleDownload} style={{ marginTop: "20px" }}>
+          download my CV
+        </button>
       </div>
       <div className="right-hero animation" style={{ width: "200%" }}>
         <Lottie

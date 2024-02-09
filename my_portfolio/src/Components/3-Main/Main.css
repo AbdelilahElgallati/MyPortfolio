@@ -13,6 +13,12 @@ main.flex{
   align-items: start;
 }
 
+main.main-section h1.title {
+  /* font-size: 2.1rem; */
+  color: var(--title);
+  margin-bottom: 1rem;
+}
+
 /* 
 --------------------------------------
   1. left section => Button
