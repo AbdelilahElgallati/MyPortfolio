@@ -5,7 +5,12 @@ import Lottie from "lottie-react";
 import doneAnimation from "../../Animations/done.json";
 import messageAnimation from "../../Animations/contact.json";
 const Contact = () => {
-  const [state, handleSubmit] = useForm("xgegevjn");
+  // Make sure to run npm install @formspree/react
+  // For more help visit https://formspr.ee/react-help
+  const [state, handleSubmit] = useForm("myyrwzpj");
+  // if (state.succeeded) {
+  //     return <p>Thanks for joining!</p>;
+  // }
 
   return (
     <section className="contact-us" id="contact">
@@ -16,7 +21,7 @@ const Contact = () => {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet sed
         ipsam culpa nam quam, maiores aspernatur atque enim consequatur veniam
       </p> */}
-      <div style={{justifyContent:"space-between"}} className="flex">
+      <div style={{ justifyContent: "space-between" }} className="flex">
         <form onSubmit={handleSubmit} action="">
           <div className="flex">
             <label htmlFor="email">Email Address</label>
@@ -66,7 +71,7 @@ const Contact = () => {
             </p>
           )}
         </form>
-        <div className="animation" style={{marginBottom:"100px"}}>
+        <div className="animation" style={{ marginBottom: "100px" }}>
           <Lottie
             className="contact-animation"
             style={{ height: 400 }}

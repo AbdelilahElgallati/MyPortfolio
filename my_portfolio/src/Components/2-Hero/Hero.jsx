@@ -39,14 +39,15 @@ const Hero = () => {
           Web Developper
         </motion.h1>
         <p className="sub-title">
-          I am Abdelilah Elgallati, a student in the professional license
+          {/* I am Abdelilah Elgallati, a student in the professional license
           program of Computer Systems and Software Engineering at the Higher
           School of Technology in Essaouira. I have experience in web
           development through internships and advanced skills in coding
           languages, databases, operating systems, and designing and using
           various software. My proficiency in Arabic, French, and English
           facilitates communication, while my passions for football, swimming,
-          and coding drive my interests.
+          and coding drive my interests. */}
+          Abdelilah Elgallati, a Computer Systems and Software Engineering student at EST Essaouira. Experienced web developer, skilled in coding languages, databases, and software design. Passionate about football, swimming, and coding. Fluent in Arabic, French, and English.
         </p>
 
         <div className="all-icons flex">
@@ -76,7 +77,7 @@ const Hero = () => {
           download my CV
         </button>
       </div>
-      <div className="right-hero animation" style={{ width: "200%" }}>
+      <div className="right-hero animation" >
         <Lottie
           lottieRef={lottieRef}
           className="dev-animation"
