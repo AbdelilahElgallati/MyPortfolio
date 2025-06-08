@@ -12,17 +12,6 @@ A modern, responsive portfolio website built with React, TypeScript, and Three.j
 - TypeScript for type safety
 - Vite for fast development and building
 
-## 🛠️ Technologies Used
-
-- React 18
-- TypeScript
-- Three.js
-- React Three Fiber
-- Framer Motion
-- Tailwind CSS
-- Vite
-- EmailJS
-- Lucide React
 
 ## 📦 Installation
 
