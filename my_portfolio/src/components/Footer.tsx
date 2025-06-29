@@ -29,7 +29,7 @@ export const Footer: React.FC = () => {
               <h3 className="font-bold text-lg">{t('footer.contact')}</h3>
               <div className="space-y-2">
                 <a
-                  href="mailto:contact@abdelilah-elgallati.com"
+                  href="mailto:abdelilah.elgallati6@gmail.com"
                   className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors"
                 >
                   <Mail size={18} />

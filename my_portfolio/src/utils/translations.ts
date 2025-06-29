@@ -156,7 +156,9 @@ export const translations = {
       }
     },
     footer: {
-      rights: 'All rights reserved.'
+      rights: 'All rights reserved.',
+      email: 'abdelilah.elgallati6@gmail.com',
+      contact: 'Contact'
     }
   },
   fr: {
@@ -316,7 +318,9 @@ export const translations = {
       }
     },
     footer: {
-      rights: 'Tous droits réservés.'
+      rights: 'Tous droits réservés.',
+      email: 'abdelilah.elgallati6@gmail.com',
+      contact: 'Contact'
     }
   }
 };
