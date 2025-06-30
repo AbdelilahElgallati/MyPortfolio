@@ -30,7 +30,7 @@ export const translations = {
           description: 'Specialized in web intelligence, data analysis, and machine learning.'
         },
         {
-          degree: 'Professional Bachelor in Computer Systems and Software Engineering',
+          degree: 'Professional License in Computer Systems and Software Engineering',
           institution: 'Higher School of Technology, Essaouira',
           year: '2023 - 2024',
           description: 'Focused on software engineering, system design, and development practices.'
