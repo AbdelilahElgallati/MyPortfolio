@@ -70,8 +70,8 @@ export const translations = {
           title: 'Web Developer Intern',
           company: 'Province of Essaouira',
           duration: '06/2022',
-          description: 'Developed an employee management website (HTML, CSS, PHP, MySQL). Design using Merise methodology.',
-          technologies: ['PHP', 'MySQL', 'HTML', 'CSS', 'Merise']
+          description: 'Developed an employee management website (HTML, CSS, JavaScript, PHP, MySQL). Design using Merise methodology.',
+          technologies: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript', 'Merise']
         }
       ]
     },
@@ -232,8 +232,8 @@ export const translations = {
           title: 'Stagiaire Développeur Web',
           company: 'Province d\'Essaouira',
           duration: '06/2022',
-          description: 'Développé un site de gestion des employés (HTML, CSS, PHP, MySQL). Conception avec Merise.',
-          technologies: ['PHP', 'MySQL', 'HTML', 'CSS', 'Merise']
+          description: 'Développé un site de gestion des employés (HTML, CSS, JavaScript, PHP, MySQL). Conception avec Merise.',
+          technologies: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript', 'Merise']
         }
       ]
     },
