@@ -1,16 +1,16 @@
-import React from 'react';
-import { Heart, Coffee, Download, Code2, Database } from 'lucide-react';
-import { useLanguage } from '../contexts/LanguageContext';
-import profileImage from '../ressources/images/my_image.png';
-import cvFile from '../ressources/files/Mon_CV_Fr.pdf';
+import React from "react";
+import { Heart, Coffee, Download, Code2, Database } from "lucide-react";
+import { useLanguage } from "../contexts/LanguageContext";
+import profileImage from "../ressources/images/My_Profile_Image.png";
+import cvFile from "../ressources/files/Abdelilah_Elgallati_CV_En.pdf";
 
 export const About: React.FC = () => {
   const { t } = useLanguage();
 
   const handleDownloadCV = () => {
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = cvFile;
-    link.download = 'Abdelilah_Elgallati_CV.pdf';
+    link.download = "Abdelilah_Elgallati_CV.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -21,47 +21,56 @@ export const About: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">
-            {t('about.title')}
+            {t("about.title")}
           </h2>
-          
+
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Avatar/Image */}
             <div className="text-center">
               <div className="w-64 h-64 mx-auto rounded-full overflow-hidden shadow-lg border-2 border-white dark:border-gray-800 transform hover:scale-105 transition-all duration-300">
                 <img
-                  src="/my_image.png"
-                  alt={t('hero.name')}
+                  src={profileImage}
+                  alt={t("hero.name")}
                   className="w-full h-full object-cover"
-                  style={{ objectPosition: '50% 23%' }}
+                  style={{
+                    objectPosition: "50% 20%",
+                    transform: "scale(1)",
+                  }}
                 />
               </div>
             </div>
-            
+
             {/* Content */}
             <div className="space-y-6">
               <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                {t('about.bio')}
+                {t("about.bio")}
               </p>
-              
+
               <div className="flex items-center space-x-2 text-blue-600 dark:text-blue-400">
                 <Code2 size={20} />
                 <span className="font-medium">MERN Stack & Laravel Expert</span>
               </div>
-              
+
               <div className="flex items-center space-x-2 text-purple-600 dark:text-purple-400">
                 <Database size={20} />
-                <span className="font-medium">Data Science & Machine Learning Enthusiast</span>
+                <span className="font-medium">
+                  Data Science & Machine Learning Enthusiast
+                </span>
               </div>
-              
+
               <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border-l-4 border-blue-500">
                 <div className="flex items-center space-x-2">
-                  <Coffee size={20} className="text-blue-600 dark:text-blue-400" />
+                  <Coffee
+                    size={20}
+                    className="text-blue-600 dark:text-blue-400"
+                  />
                   <p className="text-gray-700 dark:text-gray-300 italic">
-                    Currently pursuing Master's in Web Intelligence & Data Science
+                    Currently pursuing Master's in Web Intelligence & Data
+                    Science
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex flex-wrap gap-4">
                 <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium">
                   Full-Stack Developer
@@ -73,7 +82,7 @@ export const About: React.FC = () => {
                   Problem Solver
                 </div>
               </div>
-              
+
               {/* CV Download Button */}
               <div className="pt-4">
                 <button

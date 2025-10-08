@@ -11,7 +11,7 @@ export const translations = {
     },
     hero: {
       name: 'Abdelilah Elgallati',
-      title: 'Software Developer',
+      title: 'Data Science & Machine Learning',
       tagline: 'Building the Future, One Line of Code at a Time',
       cta: 'Explore My Work'
     },
@@ -23,6 +23,12 @@ export const translations = {
     formations: {
       title: 'Education',
       items: [
+        {
+          degree: 'Master 2 in Business Intelligence and Data Engineering',
+          institution: 'Sorbonne Paris Nord University, Paris',
+          year: '2025 - Present',
+          description: 'Specialized in business intelligence, data analysis, and machine learning.'
+        },
         {
           degree: 'Master in Web Intelligence and Data Science',
           institution: 'Sidi Mohamed Ben Abdellah University, Fes',
@@ -173,7 +179,7 @@ export const translations = {
     },
     hero: {
       name: 'Abdelilah Elgallati',
-      title: 'Développeur Logiciel',
+      title: 'Data Science & Machine Learning',
       tagline: 'Construire l\'Avenir, Une Ligne de Code à la Fois',
       cta: 'Découvrir Mon Travail'
     },
@@ -185,6 +191,12 @@ export const translations = {
     formations: {
       title: 'Formation',
       items: [
+        {
+          degree: 'Master 2, Ingénierie de l’Informatique Décisionnelle et des Données',
+          institution: 'Université Sorbonne Paris Nord, Paris',
+          year: '2025 - Présent',
+          description: 'Spécialisé en informatique Décisionnelle, analyse de données et apprentissage automatique.'
+        },
         {
           degree: 'Master, Intelligence Web et Science des Données',
           institution: 'Université Sidi Mohamed Ben Abdellah, Fès',
@@ -214,6 +226,7 @@ export const translations = {
     experience: {
       title: 'Expérience professionnelle',
       items: [
+        
         {
           title: 'Stagiaire Développeur Web',
           company: 'Big4Com, Marrakech',
