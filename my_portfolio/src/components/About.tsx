@@ -1,33 +1,43 @@
 import React from "react";
-import { Heart, Coffee, Download, Code2, Database } from "lucide-react";
+import { Download } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
+import { translations } from "../utils/translations";
 import profileImage from "../ressources/images/My_Profile_Image.png";
-import cvFile from "../ressources/files/Abdelilah_Elgallati_CV_En.pdf";
+import cvFileEn from "../ressources/files/Abdelilah_Elgallati_CV_En.pdf";
+import cvFileFr from "../ressources/files/Abdelilah_Elgallati_CV_Fr.pdf";
 
 export const About: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const handleDownloadCV = () => {
+    const cvFile = language === 'fr' ? cvFileFr : cvFileEn;
+    const fileName = language === 'fr' ? 'Abdelilah_Elgallati_CV_FR.pdf' : 'Abdelilah_Elgallati_CV_EN.pdf';
+    
     const link = document.createElement("a");
     link.href = cvFile;
-    link.download = "Abdelilah_Elgallati_CV.pdf";
+    link.download = fileName;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
+  // Access the translations object directly to get array data
+  const currentTranslations = translations[language];
+  const languages = currentTranslations.about.languages;
+
   return (
-    <section id="about" className="py-20 bg-white dark:bg-gray-900">
+    <section id="about" className="py-16 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">
             {t("about.title")}
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Avatar/Image */}
+          <div className="grid lg:grid-cols-3 gap-8 items-center">
+            
+            {/* Profile Image */}
             <div className="text-center">
-              <div className="w-64 h-64 mx-auto rounded-full overflow-hidden shadow-lg border-2 border-white dark:border-gray-800 transform hover:scale-105 transition-all duration-300">
+              <div className="w-48 h-48 mx-auto rounded-2xl overflow-hidden shadow-lg border-4 border-white dark:border-gray-800 mb-4">
                 <img
                   src={profileImage}
                   alt={t("hero.name")}
@@ -38,60 +48,59 @@ export const About: React.FC = () => {
                   }}
                 />
               </div>
+              
+              {/* CV Download */}
+              <button
+                onClick={handleDownloadCV}
+                className="inline-flex items-center gap-2 px-6 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+              >
+                <Download size={16} />
+                <span>{t('hero.cv')}</span>
+              </button>
             </div>
 
-            {/* Content */}
-            <div className="space-y-6">
-              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                {t("about.bio")}
-              </p>
-
-              <div className="flex items-center space-x-2 text-blue-600 dark:text-blue-400">
-                <Code2 size={20} />
-                <span className="font-medium">MERN Stack & Laravel Expert</span>
+            {/* Main Content */}
+            <div className="lg:col-span-2 space-y-6">
+              {/* Bio - Only essential info */}
+              <div>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                  AI & Data engineer with dual Master's degrees (Sorbonne Paris Nord & USMBA, July 2026). 
+                  I build production-ready AI systems - from 3.6M-sample ML pipelines to full-stack SaaS platforms with RAG and real-time features.
+                </p>
               </div>
 
-              <div className="flex items-center space-x-2 text-purple-600 dark:text-purple-400">
-                <Database size={20} />
-                <span className="font-medium">
-                  Data Science & Machine Learning Enthusiast
-                </span>
-              </div>
+              {/* Key Info Grid */}
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Education & Status */}
+                <div className="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg border border-blue-200 dark:border-blue-700">
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Education & Status</h3>
+                  <div className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                    <div>🎓 Dual Master's degrees (2026)</div>
+                    <div>🚀 Available immediately</div>
+                    <div>🌍 Open to relocation worldwide</div>
+                  </div>
+                </div>
 
-              <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border-l-4 border-blue-500">
-                <div className="flex items-center space-x-2">
-                  <Coffee
-                    size={20}
-                    className="text-blue-600 dark:text-blue-400"
-                  />
-                  <p className="text-gray-700 dark:text-gray-300 italic">
-                    Currently pursuing Master's in Web Intelligence & Data
-                    Science
-                  </p>
+                {/* Languages */}
+                <div className="bg-green-50 dark:bg-green-900/30 p-4 rounded-lg border border-green-200 dark:border-green-700">
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-3">{t("about.languagesTitle")}</h3>
+                  <div className="space-y-1 text-sm">
+                    {languages.map((lang: any, index: number) => (
+                      <div key={index} className="flex justify-between">
+                        <span className="text-gray-700 dark:text-gray-300">{lang.name}</span>
+                        <span className="text-gray-600 dark:text-gray-400">{lang.level}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-4">
-                <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium">
-                  Full-Stack Developer
-                </div>
-                <div className="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium">
-                  Data Scientist
-                </div>
-                <div className="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-full text-sm font-medium">
-                  Problem Solver
-                </div>
-              </div>
-
-              {/* CV Download Button */}
-              <div className="pt-4">
-                <button
-                  onClick={handleDownloadCV}
-                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-gray-700 to-gray-800 text-white px-6 py-3 rounded-lg font-medium hover:from-gray-800 hover:to-gray-900 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-                >
-                  <Download size={20} />
-                  <span>Download CV</span>
-                </button>
+              {/* Seeking */}
+              <div className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/30 dark:to-blue-900/30 p-4 rounded-lg border border-purple-200 dark:border-purple-700">
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Currently Seeking</h3>
+                <p className="text-sm text-gray-700 dark:text-gray-300">
+                  Junior roles in AI/ML Engineering, GenAI/NLP, Data Science, or Full-Stack Development
+                </p>
               </div>
             </div>
           </div>
