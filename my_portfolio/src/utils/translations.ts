@@ -327,7 +327,7 @@ export const translations = {
             title: 'Formation',
             items: [
                 {
-                    degree: 'Master, Informatique pour l\'Exploration des Données et l\'Aide à la Décision (EIDD)',
+                    degree: 'Master 2, Informatique pour l\'Exploration des Données et l\'Aide à la Décision (EIDD)',
                     institution: 'Université Sorbonne Paris Nord, Paris',
                     year: '2025 - Juillet 2026',
                     description: 'Diplômé en juillet 2026. Science des données et systèmes d\'aide à la décision, informatique décisionnelle et apprentissage automatique. Double diplôme franco-marocain.'
