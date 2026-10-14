@@ -115,22 +115,10 @@ export const translations = {
         skills: {
             title: 'Skills',
             categories: {
-                ml: 'Machine Learning & Data',
-                genai: 'GenAI, NLP & Search',
-                backend: 'Backend',
-                frontend: 'Frontend & Mobile',
-                data: 'Databases',
-                tools: 'Infrastructure & Tools',
-                soft: 'Soft Skills'
-            },
-            items: {
-                ml: ['Python', 'PyTorch', 'TensorFlow / Keras', 'Scikit-learn', 'Pandas', 'NumPy', 'Feature Engineering', 'Model Evaluation', 'Recommender Systems', 'Computer Vision (YOLOv8, OpenCV)', 'Multimodal Learning', 'Power BI'],
-                genai: ['LLMs', 'RAG', 'LangChain', 'LlamaIndex', 'Sentence-Transformers', 'Hugging Face Transformers', 'FAISS', 'ChromaDB', 'CLIP', 'Whisper', 'Semantic Search', 'Multilingual NLP'],
-                backend: ['FastAPI', 'Flask', 'Node.js', 'Express.js', 'REST APIs', 'WebSockets', 'SSE', 'JWT Authentication', 'Scrapy', 'Background / Scheduled Jobs'],
-                frontend: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Expo / React Native', 'Three.js', 'React Three Fiber'],
-                data: ['SQL', 'PostgreSQL', 'MongoDB', 'Supabase', 'Prisma', 'Redis'],
-                tools: ['Docker', 'Docker Compose', 'Linux', 'Nginx', 'PM2', 'Git & GitHub', 'Vercel', 'Hetzner VPS', 'Cloudflare R2', 'Playwright', 'Postman', 'CI/CD concepts'],
-                soft: ['Problem solving', 'Teamwork', 'Adaptability', 'Autonomy', 'Clear technical communication']
+                ai_genai: 'AI, GenAI & NLP',
+                ml_data: 'ML & Data Science',
+                backend_mlops: 'Backend & MLOps',
+                frontend: 'Frontend'
             }
         },
         projects: {
@@ -404,22 +392,10 @@ export const translations = {
         skills: {
             title: 'Compétences',
             categories: {
-                ml: 'Machine Learning & Data',
-                genai: 'GenAI, NLP & Recherche',
-                backend: 'Backend',
-                frontend: 'Frontend & Mobile',
-                data: 'Bases de données',
-                tools: 'Infrastructure & Outils',
-                soft: 'Compétences Relationnelles'
-            },
-            items: {
-                ml: ['Python', 'PyTorch', 'TensorFlow / Keras', 'Scikit-learn', 'Pandas', 'NumPy', 'Feature Engineering', 'Évaluation de modèles', 'Systèmes de recommandation', 'Vision par ordinateur (YOLOv8, OpenCV)', 'Apprentissage multimodal', 'Power BI'],
-                genai: ['LLMs', 'RAG', 'LangChain', 'LlamaIndex', 'Sentence-Transformers', 'Hugging Face Transformers', 'FAISS', 'ChromaDB', 'CLIP', 'Whisper', 'Recherche sémantique', 'NLP multilingue'],
-                backend: ['FastAPI', 'Flask', 'Node.js', 'Express.js', 'APIs REST', 'WebSockets', 'SSE', 'Authentification JWT', 'Scrapy', 'Tâches planifiées / en arrière-plan'],
-                frontend: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Expo / React Native', 'Three.js', 'React Three Fiber'],
-                data: ['SQL', 'PostgreSQL', 'MongoDB', 'Supabase', 'Prisma', 'Redis'],
-                tools: ['Docker', 'Docker Compose', 'Linux', 'Nginx', 'PM2', 'Git & GitHub', 'Vercel', 'Hetzner VPS', 'Cloudflare R2', 'Playwright', 'Postman', 'Notions de CI/CD'],
-                soft: ['Résolution de problèmes', 'Travail en équipe', 'Adaptabilité', 'Autonomie', 'Communication technique claire']
+                ai_genai: 'IA, GenAI & NLP',
+                ml_data: 'ML & Data Science',
+                backend_mlops: 'Backend & MLOps',
+                frontend: 'Frontend'
             }
         },
         projects: {

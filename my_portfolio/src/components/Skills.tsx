@@ -1,29 +1,35 @@
 import React from 'react';
-import { Brain, Server, Monitor } from 'lucide-react';
+import { Brain, Cpu, Server, Monitor } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export const Skills: React.FC = () => {
   const { t } = useLanguage();
 
-  // Enhanced skill list with more essential technologies
-  const coreSkills = [
+  // AI/ML focused skill categories
+  const skillCategories = [
     {
-      category: 'AI & Machine Learning',
+      key: 'ai_genai',
       icon: Brain,
       color: 'blue',
-      skills: ['Python', 'PyTorch', 'TensorFlow', 'Scikit-learn', 'RAG Systems', 'LangChain', 'Hugging Face', 'CLIP', 'Whisper', 'OpenCV', 'Pandas', 'NumPy']
+      skills: ['Python', 'PyTorch', 'TensorFlow', 'Hugging Face', 'LangChain', 'LlamaIndex', 'RAG Systems', 'Sentence-Transformers', 'CLIP', 'Whisper', 'NLLB-200']
     },
     {
-      category: 'Backend & APIs',
+      key: 'ml_data',
+      icon: Cpu,
+      color: 'purple',
+      skills: ['Scikit-learn', 'Pandas', 'NumPy', 'FAISS', 'ChromaDB', 'MLflow', 'SQL', 'PostgreSQL', 'MongoDB', 'OpenCV', 'Matplotlib']
+    },
+    {
+      key: 'backend_mlops',
       icon: Server,
-      color: 'purple',  
-      skills: ['FastAPI', 'Node.js', 'Express.js', 'Flask', 'MongoDB', 'PostgreSQL', 'Redis', 'Docker', 'WebSockets', 'REST APIs', 'JWT Auth', 'Nginx']
+      color: 'green',
+      skills: ['FastAPI', 'Node.js', 'Express.js', 'Flask', 'Docker', 'Redis', 'WebSockets', 'REST APIs', 'JWT Auth', 'Git', 'Linux']
     },
     {
-      category: 'Frontend & Tools',
+      key: 'frontend',
       icon: Monitor,
-      color: 'green',
-      skills: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Three.js', 'Git & GitHub', 'Linux', 'Vercel', 'Postman', 'CI/CD', 'Prisma']
+      color: 'orange',
+      skills: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Three.js', 'HTML/CSS', 'Vercel', 'Netlify']
     }
   ];
 
@@ -31,7 +37,8 @@ export const Skills: React.FC = () => {
     const colors = {
       blue: 'from-blue-500 to-blue-600',
       purple: 'from-purple-500 to-purple-600',
-      green: 'from-green-500 to-green-600'
+      green: 'from-green-500 to-green-600',
+      orange: 'from-orange-500 to-orange-600'
     };
     return colors[color as keyof typeof colors];
   };
@@ -51,8 +58,8 @@ export const Skills: React.FC = () => {
           </div>
 
           {/* Skills Grid */}
-          <div className="grid lg:grid-cols-3 gap-8">
-            {coreSkills.map((category, index) => {
+          <div className="grid lg:grid-cols-2 gap-8">
+            {skillCategories.map((category, index) => {
               const Icon = category.icon;
               const gradient = getColorClasses(category.color);
               
@@ -63,13 +70,13 @@ export const Skills: React.FC = () => {
                       <Icon size={20} className="text-white" />
                     </div>
                     <h3 className="font-bold text-gray-900 dark:text-white">
-                      {category.category}
+                      {t(`skills.categories.${category.key}`)}
                     </h3>
                   </div>
                   
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="flex flex-wrap gap-2">
                     {category.skills.map((skill, skillIndex) => (
-                      <div key={skillIndex} className="bg-gray-50 dark:bg-gray-800 px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 text-center hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                      <div key={skillIndex} className="bg-gray-50 dark:bg-gray-800 px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
                         {skill}
                       </div>
                     ))}
