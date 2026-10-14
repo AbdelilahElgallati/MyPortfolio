@@ -19,35 +19,35 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="contact" className="surface-subtle py-20">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="font-display text-4xl font-bold text-primary mb-4">
               {t('contact.title')}
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg text-secondary max-w-2xl mx-auto">
               {t('contact.description')}
             </p>
           </div>
 
           {/* Contact Information Card */}
-          <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8 mx-auto max-w-2xl">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+          <div className="surface-card rounded-xl p-6 sm:p-8 mx-auto max-w-2xl">
+            <h3 className="text-2xl font-bold text-primary mb-8 text-center">
               {t('contact.info.title')}
             </h3>
 
             <div className="space-y-6">
               {/* Email */}
-              <div className="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                <Mail className="text-blue-600 dark:text-blue-400" size={24} />
+              <div className="flex items-center space-x-4 p-4 bg-secondary rounded-lg hover:bg-primary-100 dark:hover:bg-primary-900/40 transition-colors">
+                <Mail className="text-primary-700 dark:text-primary-300" size={24} />
                 <div className="flex-1">
-                  <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  <h4 className="text-sm font-medium text-secondary">
                     {t('contact.info.email')}
                   </h4>
                   <a
                     href="mailto:abdelilah.elgallati6@gmail.com"
-                    className="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    className="text-primary hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
                   >
                     abdelilah.elgallati6@gmail.com
                   </a>
@@ -55,15 +55,15 @@ export const Contact: React.FC = () => {
               </div>
 
               {/* Phone */}
-              <div className="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                <Phone className="text-green-600 dark:text-green-400" size={24} />
+              <div className="flex items-center space-x-4 p-4 bg-secondary rounded-lg hover:bg-teal-100 dark:hover:bg-teal-900/40 transition-colors">
+                <Phone className="text-teal-700 dark:text-teal-300" size={24} />
                 <div className="flex-1">
-                  <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  <h4 className="text-sm font-medium text-secondary">
                     {t('contact.info.phone')}
                   </h4>
                   <a
                     href="tel:+212708135350"
-                    className="text-gray-900 dark:text-white hover:text-green-600 dark:hover:text-green-400 transition-colors"
+                    className="text-primary hover:text-teal-700 dark:hover:text-teal-300 transition-colors"
                   >
                     {t('contact.info.phoneValue')}
                   </a>
@@ -71,26 +71,26 @@ export const Contact: React.FC = () => {
               </div>
 
               {/* Location */}
-              <div className="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                <MapPin className="text-red-600 dark:text-red-400" size={24} />
+              <div className="flex items-center space-x-4 p-4 bg-secondary rounded-lg">
+                <MapPin className="text-accent-700 dark:text-accent-300" size={24} />
                 <div className="flex-1">
-                  <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  <h4 className="text-sm font-medium text-secondary">
                     {t('contact.info.location')}
                   </h4>
-                  <p className="text-gray-900 dark:text-white">
+                  <p className="text-primary">
                     {t('contact.info.locationValue')}
                   </p>
                 </div>
               </div>
 
               {/* Availability */}
-              <div className="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                <Briefcase className="text-purple-600 dark:text-purple-400" size={24} />
+              <div className="flex items-center space-x-4 p-4 bg-secondary rounded-lg">
+                <Briefcase className="text-teal-700 dark:text-teal-300" size={24} />
                 <div className="flex-1">
-                  <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  <h4 className="text-sm font-medium text-secondary">
                     {t('contact.info.availability')}
                   </h4>
-                  <p className="text-gray-900 dark:text-white">
+                  <p className="text-primary">
                     {t('contact.info.availabilityValue')}
                   </p>
                 </div>
@@ -98,14 +98,14 @@ export const Contact: React.FC = () => {
             </div>
 
             {/* CV Download Section */}
-            <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 text-center">
+            <div className="mt-8 pt-8 border-t border-default">
+              <h4 className="text-lg font-semibold text-primary mb-4 text-center">
                 {t('hero.cv')}
               </h4>
               <div className="flex flex-col items-center gap-3">
                 <button
                   onClick={() => handleDownloadCV()}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary-700 hover:bg-primary-800 text-white rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
                   <Download size={18} />
                   <span>{t('hero.cv')}</span>
@@ -113,7 +113,7 @@ export const Contact: React.FC = () => {
                 
                 <button 
                   onClick={() => handleDownloadCV(language === 'en' ? 'fr' : 'en')}
-                  className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                  className="min-h-11 text-sm text-primary-700 dark:text-primary-300 hover:underline"
                 >
                   {t('hero.cvSecondary')}
                 </button>
@@ -121,8 +121,8 @@ export const Contact: React.FC = () => {
             </div>
 
             {/* Social Media Links */}
-            <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-6 text-center">
+            <div className="mt-8 pt-8 border-t border-default">
+              <h4 className="text-lg font-semibold text-primary mb-6 text-center">
                 Connect with me
               </h4>
               <div className="flex justify-center space-x-6">
@@ -130,7 +130,7 @@ export const Contact: React.FC = () => {
                   href={t('contact.info.linkedin')}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                  className="group flex items-center space-x-2 bg-primary-700 hover:bg-primary-800 text-white px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
                   <Linkedin size={20} />
                   <span>LinkedIn</span>
@@ -141,7 +141,7 @@ export const Contact: React.FC = () => {
                   href={t('contact.info.github')}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center space-x-2 bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                  className="group flex items-center space-x-2 bg-slate-800 hover:bg-slate-700 text-white px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
                   <Github size={20} />
                   <span>GitHub</span>

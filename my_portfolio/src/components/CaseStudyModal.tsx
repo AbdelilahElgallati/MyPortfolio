@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { X, Github, ExternalLink } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
-interface CaseStudy {
+export interface CaseStudy {
   name: string;
   problem: string;
   approach: string;
@@ -20,66 +21,124 @@ interface CaseStudyModalProps {
 }
 
 export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ isOpen, onClose, caseStudy }) => {
+  const { t } = useLanguage();
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    previousFocusRef.current = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : null;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    closeButtonRef.current?.focus();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onClose();
+        return;
+      }
+
+      if (event.key !== 'Tab' || !dialogRef.current) return;
+
+      const focusableElements = dialogRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+      );
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (!firstElement || !lastElement) return;
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      previousFocusRef.current?.focus();
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-      <div className="bg-white dark:bg-gray-900 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="sticky top-0 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 p-6 flex items-center justify-between">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{caseStudy.name}</h2>
+    <div
+      className="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+      role="presentation"
+    >
+      <div
+        ref={dialogRef}
+        className="surface-card rounded-xl max-w-4xl w-full max-h-[calc(100dvh-2rem)] overflow-y-auto"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="case-study-title"
+      >
+        <div className="sticky top-0 surface-card border-b border-default p-4 sm:p-6 flex items-center justify-between gap-4 z-10">
+          <h2 id="case-study-title" className="text-xl sm:text-2xl font-bold text-primary">{caseStudy.name}</h2>
           <button
+            ref={closeButtonRef}
             onClick={onClose}
-            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+            className="min-w-11 min-h-11 p-2 hover:bg-primary-100 dark:hover:bg-primary-900/40 rounded-lg transition-colors"
+            aria-label={t('caseStudy.close')}
           >
-            <X size={24} className="text-gray-500 dark:text-gray-400" />
+            <X size={24} className="text-secondary" aria-hidden="true" />
           </button>
         </div>
         
-        <div className="p-6 space-y-8">
+        <div className="p-4 sm:p-6 space-y-8">
           {/* Problem */}
           <section>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
-              <span className="w-2 h-2 bg-red-500 rounded-full mr-3"></span>
-              Problem
+            <h3 className="text-xl font-semibold text-primary mb-3 flex items-center">
+              <span className="w-2 h-2 bg-accent-500 rounded-full mr-3" aria-hidden="true"></span>
+              {t('caseStudy.problem')}
             </h3>
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{caseStudy.problem}</p>
+            <p className="text-secondary leading-relaxed">{caseStudy.problem}</p>
           </section>
 
           {/* Approach */}
           <section>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
-              <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-              Approach
+            <h3 className="text-xl font-semibold text-primary mb-3 flex items-center">
+              <span className="w-2 h-2 bg-primary-500 rounded-full mr-3" aria-hidden="true"></span>
+              {t('caseStudy.approach')}
             </h3>
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{caseStudy.approach}</p>
+            <p className="text-secondary leading-relaxed">{caseStudy.approach}</p>
           </section>
 
           {/* Architecture */}
           <section>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
-              <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-              Architecture
+            <h3 className="text-xl font-semibold text-primary mb-3 flex items-center">
+              <span className="w-2 h-2 bg-teal-500 rounded-full mr-3" aria-hidden="true"></span>
+              {t('caseStudy.architecture')}
             </h3>
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{caseStudy.architecture}</p>
+            <p className="text-secondary leading-relaxed">{caseStudy.architecture}</p>
           </section>
 
           {/* Results */}
           <section>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
-              <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-              Results
+            <h3 className="text-xl font-semibold text-primary mb-3 flex items-center">
+              <span className="w-2 h-2 bg-teal-600 rounded-full mr-3" aria-hidden="true"></span>
+              {t('caseStudy.results')}
             </h3>
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{caseStudy.results}</p>
+            <p className="text-secondary leading-relaxed">{caseStudy.results}</p>
           </section>
 
           {/* Technologies */}
           <section>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Technologies Used</h3>
+            <h3 className="text-xl font-semibold text-primary mb-3">{t('caseStudy.technologies')}</h3>
             <div className="flex flex-wrap gap-2">
               {caseStudy.technologies.map((tech, index) => (
                 <span
                   key={index}
-                  className="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-3 py-2 rounded-lg text-sm font-medium"
+                  className="bg-primary-100 dark:bg-primary-900/40 text-primary-800 dark:text-primary-200 px-3 py-2 rounded-lg text-sm font-medium"
                 >
                   {tech}
                 </span>
@@ -89,24 +148,24 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ isOpen, onClose,
 
           {/* Future Improvements */}
           <section>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
-              <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-              What I Would Improve
+            <h3 className="text-xl font-semibold text-primary mb-3 flex items-center">
+              <span className="w-2 h-2 bg-accent-500 rounded-full mr-3" aria-hidden="true"></span>
+              {t('caseStudy.improvements')}
             </h3>
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{caseStudy.improvements}</p>
+            <p className="text-secondary leading-relaxed">{caseStudy.improvements}</p>
           </section>
 
           {/* Links */}
-          <section className="flex gap-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+          <section className="flex flex-wrap gap-4 pt-4 border-t border-default" aria-label={t('caseStudy.links')}>
             {caseStudy.githubUrl && (
               <a
                 href={caseStudy.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-gray-900 dark:bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors"
+                className="inline-flex items-center gap-2 bg-slate-800 text-white px-4 py-3 rounded-lg hover:bg-slate-700 transition-colors"
               >
                 <Github size={18} />
-                View Code
+                {t('caseStudy.code')}
               </a>
             )}
             {caseStudy.demoUrl && (
@@ -114,10 +173,10 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ isOpen, onClose,
                 href={caseStudy.demoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center gap-2 bg-primary-700 text-white px-4 py-3 rounded-lg hover:bg-primary-800 transition-colors"
               >
                 <ExternalLink size={18} />
-                Live Demo
+                {t('caseStudy.demo')}
               </a>
             )}
           </section>

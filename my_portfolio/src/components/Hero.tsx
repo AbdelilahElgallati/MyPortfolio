@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
 import { Download, ArrowDown } from 'lucide-react';
@@ -8,6 +8,23 @@ import { AnimatedSphere } from './3D/AnimatedSphere';
 
 export const Hero: React.FC = () => {
     const { t, language } = useLanguage();
+    const [showScene, setShowScene] = useState(false);
+
+    useEffect(() => {
+        const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const updateSceneVisibility = () => {
+            setShowScene(!motionPreference.matches && window.innerWidth > 640);
+        };
+
+        updateSceneVisibility();
+        motionPreference.addEventListener('change', updateSceneVisibility);
+        window.addEventListener('resize', updateSceneVisibility);
+
+        return () => {
+            motionPreference.removeEventListener('change', updateSceneVisibility);
+            window.removeEventListener('resize', updateSceneVisibility);
+        };
+    }, []);
 
     const scrollToProjects = () => {
         const element = document.querySelector('#projects');
@@ -32,20 +49,22 @@ export const Hero: React.FC = () => {
     return (
         <section id="hero" className="hero-surface min-h-screen flex items-center justify-center relative overflow-hidden pb-40 sm:pb-32">
             {/* 3D Background */}
-            <div className="absolute inset-0 opacity-30 dark:opacity-20">
-                <Canvas aria-hidden="true">
-                    <PerspectiveCamera makeDefault position={[0, 0, 5]} />
-                    <ambientLight intensity={0.5} />
-                    <pointLight position={[10, 10, 10]} />
-                    <Suspense fallback={null}>
-                        <FloatingCube position={[-3, 2, 0]} scale={0.8} color="#3B82F6" />
-                        <AnimatedSphere position={[3, -1, 0]} scale={0.6} color="#14B8A6" />
-                        <FloatingCube position={[0, -3, -2]} scale={0.5} color="#0D9488" />
-                        <AnimatedSphere position={[-2, -2, -1]} scale={0.4} color="#F59E0B" />
-                    </Suspense>
-                    <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
-                </Canvas>
-            </div>
+            {showScene && (
+                <div className="absolute inset-0 opacity-30 dark:opacity-20" aria-hidden="true">
+                    <Canvas>
+                        <PerspectiveCamera makeDefault position={[0, 0, 5]} />
+                        <ambientLight intensity={0.5} />
+                        <pointLight position={[10, 10, 10]} />
+                        <Suspense fallback={null}>
+                            <FloatingCube position={[-3, 2, 0]} scale={0.8} color="#0284C7" />
+                            <AnimatedSphere position={[3, -1, 0]} scale={0.6} color="#14B8A6" />
+                            <FloatingCube position={[0, -3, -2]} scale={0.5} color="#0D9488" />
+                            <AnimatedSphere position={[-2, -2, -1]} scale={0.4} color="#F59E0B" />
+                        </Suspense>
+                        <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
+                    </Canvas>
+                </div>
+            )}
 
             {/* Background Pattern for Light Mode */}
             <div className="absolute inset-0 opacity-5 dark:opacity-0" aria-hidden="true">
@@ -110,7 +129,7 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Scroll Indicator */}
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
+            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 motion-safe:animate-bounce z-10">
                 <ArrowDown size={20} className="text-muted" aria-hidden="true" />
             </div>
 

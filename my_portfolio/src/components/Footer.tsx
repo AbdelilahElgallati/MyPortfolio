@@ -7,19 +7,19 @@ export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 dark:bg-black text-white py-16">
+    <footer className="bg-slate-950 text-white py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             {/* Brand */}
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                <div className="w-8 h-8 bg-gradient-to-r from-primary-600 to-teal-600 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-sm">AE</span>
                 </div>
                 <span className="font-bold text-xl">{t('hero.name')}</span>
               </div>
-              <p className="text-gray-400">
+              <p className="text-slate-300">
                 {t('hero.title')} passionate about creating amazing digital experiences.
               </p>
             </div>
@@ -30,7 +30,7 @@ export const Footer: React.FC = () => {
               <div className="space-y-2">
                 <a
                   href="mailto:abdelilah.elgallati6@gmail.com"
-                  className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors"
+                  className="flex items-center space-x-2 text-slate-300 hover:text-white transition-colors"
                 >
                   <Mail size={18} />
                   <span>{t('footer.email')}</span>
@@ -46,7 +46,7 @@ export const Footer: React.FC = () => {
                   href="https://github.com/AbdelilahElgallati"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
+                  className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-primary-600 transition-colors"
                   aria-label="GitHub"
                 >
                   <Github size={20} />
@@ -55,7 +55,7 @@ export const Footer: React.FC = () => {
                   href="https://linkedin.com/in/abdelilah-elgallati"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
+                  className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-primary-600 transition-colors"
                   aria-label="LinkedIn"
                 >
                   <Linkedin size={20} />
@@ -65,11 +65,11 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Bottom */}
-          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between">
-            <p className="text-gray-400 text-sm">
+          <div className="border-t border-slate-700 pt-8 flex flex-col md:flex-row items-center justify-between">
+            <p className="text-slate-300 text-sm">
               © {currentYear} {t('hero.name')}. {t('footer.rights')}
             </p>
-            <div className="flex items-center space-x-1 text-gray-400 text-sm mt-4 md:mt-0">
+            <div className="flex items-center space-x-1 text-slate-300 text-sm mt-4 md:mt-0">
               <span>Made with</span>
               <Heart size={16} className="text-red-500 animate-pulse" />
               <span>and lots of coffee</span>

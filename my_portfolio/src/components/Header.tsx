@@ -47,7 +47,7 @@ export const Header: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg'
+          ? 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-md shadow-lg'
           : 'bg-transparent'
       }`}
     >
@@ -60,7 +60,7 @@ export const Header: React.FC = () => {
               e.preventDefault();
               scrollToSection('home');
             }}
-            className="text-2xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            className="text-2xl font-bold text-primary hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
           >
             AE
           </a>
@@ -71,7 +71,7 @@ export const Header: React.FC = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-secondary hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
               >
                 {item.label}
               </button>
@@ -82,14 +82,14 @@ export const Header: React.FC = () => {
           <div className="hidden md:flex items-center space-x-4">
             <button
               onClick={toggleTheme}
-              className="p-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="min-w-11 min-h-11 p-2 text-secondary hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
               aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
             </button>
             <button
               onClick={toggleLanguage}
-              className="p-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="min-w-11 min-h-11 p-2 text-secondary hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
               aria-label="Toggle language"
             >
               <Languages size={20} />
@@ -99,8 +99,10 @@ export const Header: React.FC = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            className="md:hidden min-w-11 min-h-11 p-2 text-secondary hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
             aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -108,28 +110,28 @@ export const Header: React.FC = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4">
+          <div id="mobile-navigation" className="md:hidden py-4 surface-card border-t">
             <nav className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-left"
+                  className="min-h-11 text-secondary hover:text-primary-700 dark:hover:text-primary-300 transition-colors text-left"
                 >
                   {item.label}
                 </button>
               ))}
-              <div className="flex items-center space-x-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+              <div className="flex items-center space-x-4 pt-4 border-t border-default">
                 <button
                   onClick={toggleTheme}
-                  className="p-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="min-w-11 min-h-11 p-2 text-secondary hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
                   aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
                 >
                   {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
                 </button>
                 <button
                   onClick={toggleLanguage}
-                  className="p-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="min-w-11 min-h-11 p-2 text-secondary hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
                   aria-label="Toggle language"
                 >
                   <Languages size={20} />

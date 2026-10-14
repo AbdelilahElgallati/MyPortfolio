@@ -25,10 +25,10 @@ export const About: React.FC = () => {
   const languages = currentTranslations.about.languages;
 
   return (
-    <section id="about" className="py-16 bg-white dark:bg-gray-900">
+    <section id="about" className="surface-page py-20">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">
+          <h2 className="font-display text-3xl font-bold text-center text-primary mb-10">
             {t("about.title")}
           </h2>
 
@@ -36,7 +36,7 @@ export const About: React.FC = () => {
             
             {/* Profile Image */}
             <div className="text-center">
-              <div className="w-48 h-48 mx-auto rounded-2xl overflow-hidden shadow-lg border-4 border-white dark:border-gray-800 mb-4">
+              <div className="w-48 h-48 mx-auto rounded-2xl overflow-hidden shadow-lg border-4 border-white dark:border-slate-700 mb-4">
                 <img
                   src={profileImage}
                   alt={t("hero.name")}
@@ -52,7 +52,7 @@ export const About: React.FC = () => {
               <div className="flex flex-col items-center gap-2">
                 <button
                   onClick={() => handleDownloadCV()}
-                  className="inline-flex items-center gap-2 px-6 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary-700 text-white rounded-lg font-medium hover:bg-primary-800 transition-colors"
                 >
                   <Download size={16} />
                   <span>{t('hero.cv')}</span>
@@ -60,7 +60,7 @@ export const About: React.FC = () => {
                 
                 <button 
                   onClick={() => handleDownloadCV(language === 'en' ? 'fr' : 'en')}
-                  className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                  className="min-h-11 text-sm text-primary-700 dark:text-primary-300 hover:underline"
                 >
                   {t('hero.cvSecondary')}
                 </button>
@@ -71,7 +71,7 @@ export const About: React.FC = () => {
             <div className="lg:col-span-2 space-y-6">
               {/* Bio - Only essential info */}
               <div>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                <p className="text-secondary leading-relaxed max-w-3xl">
                   AI & Data engineer with dual Master's degrees (Sorbonne Paris Nord & USMBA, July 2026). 
                   I build production-oriented AI systems - from 3.6M-sample ML pipelines to full-stack SaaS platforms with RAG and real-time features.
                 </p>
@@ -80,9 +80,9 @@ export const About: React.FC = () => {
               {/* Key Info Grid */}
               <div className="grid md:grid-cols-2 gap-6">
                 {/* Education & Status */}
-                <div className="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg border border-blue-200 dark:border-blue-700">
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Education & Status</h3>
-                  <div className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                <div className="bg-primary-50 dark:bg-primary-900/30 p-5 rounded-lg border border-primary-200 dark:border-primary-700">
+                  <h3 className="font-semibold text-primary mb-3">Education & Status</h3>
+                  <div className="space-y-2 text-sm text-secondary">
                     <div>🎓 Dual Master's degrees (2026)</div>
                     <div>🚀 Available immediately</div>
                     <div>🌍 Open to relocation worldwide</div>
@@ -90,13 +90,13 @@ export const About: React.FC = () => {
                 </div>
 
                 {/* Languages */}
-                <div className="bg-green-50 dark:bg-green-900/30 p-4 rounded-lg border border-green-200 dark:border-green-700">
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-3">{t("about.languagesTitle")}</h3>
+                <div className="bg-teal-50 dark:bg-teal-900/30 p-5 rounded-lg border border-teal-200 dark:border-teal-700">
+                  <h3 className="font-semibold text-primary mb-3">{t("about.languagesTitle")}</h3>
                   <div className="space-y-1 text-sm">
-                    {languages.map((lang: any, index: number) => (
+                    {languages.map((lang, index) => (
                       <div key={index} className="flex justify-between">
-                        <span className="text-gray-700 dark:text-gray-300">{lang.name}</span>
-                        <span className="text-gray-600 dark:text-gray-400">{lang.level}</span>
+                        <span className="text-secondary">{lang.name}</span>
+                        <span className="text-muted">{lang.level}</span>
                       </div>
                     ))}
                   </div>
@@ -104,9 +104,9 @@ export const About: React.FC = () => {
               </div>
 
               {/* Seeking */}
-              <div className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/30 dark:to-blue-900/30 p-4 rounded-lg border border-purple-200 dark:border-purple-700">
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Currently Seeking</h3>
-                <p className="text-sm text-gray-700 dark:text-gray-300">
+              <div className="bg-gradient-to-r from-teal-50 to-primary-50 dark:from-teal-900/30 dark:to-primary-900/30 p-5 rounded-lg border border-teal-200 dark:border-teal-700">
+                <h3 className="font-semibold text-primary mb-2">Currently Seeking</h3>
+                <p className="text-sm text-secondary">
                   Junior roles in AI/ML Engineering, GenAI/NLP, Data Science, or Full-Stack Development
                 </p>
               </div>

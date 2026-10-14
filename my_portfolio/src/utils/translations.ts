@@ -242,6 +242,18 @@ export const translations = {
                 }
             ]
         },
+        caseStudy: {
+            close: 'Close case study',
+            problem: 'Problem',
+            approach: 'Approach',
+            architecture: 'Architecture',
+            results: 'Results',
+            technologies: 'Technologies used',
+            improvements: 'What I would improve',
+            links: 'Project links',
+            code: 'View code',
+            demo: 'Live demo'
+        },
         contact: {
             title: 'Get In Touch',
             description: 'I am available immediately. Whether you have a role, a project or a question, feel free to reach out.',
@@ -515,6 +527,18 @@ export const translations = {
                     demoUrl: null
                 }
             ]
+        },
+        caseStudy: {
+            close: 'Fermer l’étude de cas',
+            problem: 'Problème',
+            approach: 'Approche',
+            architecture: 'Architecture',
+            results: 'Résultats',
+            technologies: 'Technologies utilisées',
+            improvements: 'Ce que j’améliorerais',
+            links: 'Liens du projet',
+            code: 'Voir le code',
+            demo: 'Démo en ligne'
         },
         contact: {
             title: 'Contactez-moi',

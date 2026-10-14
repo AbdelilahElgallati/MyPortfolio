@@ -2,11 +2,16 @@ import React, { createContext, useContext, useState } from 'react';
 import { translations } from '../utils/translations';
 
 type Language = 'en' | 'fr';
+type TranslationArray = readonly unknown[];
+type Translate = {
+  (key: string): string;
+  (key: string, options: { returnObjects: true }): TranslationArray;
+};
 
 interface LanguageContextType {
   language: Language;
   toggleLanguage: () => void;
-  t: (key: string) => string;
+  t: Translate;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -18,16 +23,22 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     setLanguage(prev => prev === 'en' ? 'fr' : 'en');
   };
 
-  const t = (key: string): string => {
+  const t = ((key: string, options?: { returnObjects: true }): string | TranslationArray => {
     const keys = key.split('.');
-    let value: any = translations[language];
+    let value: unknown = translations[language];
     
     for (const k of keys) {
-      value = value?.[k];
+      value = typeof value === 'object' && value !== null
+        ? (value as Record<string, unknown>)[k]
+        : undefined;
     }
     
-    return value || key;
-  };
+    if (options?.returnObjects) {
+      return Array.isArray(value) ? value : [];
+    }
+
+    return typeof value === 'string' ? value : key;
+  }) as Translate;
 
   return (
     <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
