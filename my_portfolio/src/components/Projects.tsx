@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Github } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { translations } from '../utils/translations';
+import { CaseStudyModal } from './CaseStudyModal';
 
 interface Project {
   name: string;
@@ -15,6 +16,7 @@ interface Project {
 export const Projects: React.FC = () => {
   const { t, language } = useLanguage();
   const allProjects = translations[language].projects.items as Project[];
+  const [selectedCaseStudy, setSelectedCaseStudy] = useState<any>(null);
   
   // Featured projects: only the top 3 AI/Data relevant projects
   const featuredProjects = allProjects.filter(p => p.featured).slice(0, 3);
@@ -23,6 +25,49 @@ export const Projects: React.FC = () => {
   const otherProjects = allProjects
     .filter(p => !p.featured)
     .slice(0, 6); // Limit to 6 other projects for clean layout
+
+  // Case studies for featured projects
+  const caseStudies = {
+    'IVEP': {
+      name: 'IVEP - Virtual Exhibition Platform',
+      problem: 'Creating an AI-powered SaaS platform for virtual exhibitions required handling multiple user roles (Admin, Organizer, Enterprise, Visitor), real-time interactions, multilingual support, and complex business logic while maintaining scalability and performance.',
+      approach: 'Built a microservices-inspired architecture using FastAPI with 30+ modular backend services. Implemented RAG-based conversational AI using Sentence-Transformers and ChromaDB for scoped assistance. Added real-time features with WebSockets/SSE and Redis pub/sub for chat and notifications.',
+      architecture: 'FastAPI backend with MongoDB, Redis for caching/pub-sub, ChromaDB for vector storage, Docker containerization, Nginx reverse proxy. Frontend with Next.js and TypeScript. AI pipeline with Whisper (transcription), NLLB-200 (translation), and LangChain orchestration.',
+      results: 'Successfully delivered a production-ready platform with 4 distinct user portals, real-time chat, multilingual AI assistance, and integrated payment processing. Private internship project with confidential business metrics.',
+      improvements: 'Would add Kubernetes orchestration for better scalability, implement more sophisticated vector search with hybrid retrieval (dense + sparse), add comprehensive monitoring with Grafana/Prometheus, and enhance the recommendation system with collaborative filtering.',
+      technologies: ['FastAPI', 'Next.js', 'TypeScript', 'MongoDB', 'Redis', 'ChromaDB', 'Whisper', 'NLLB-200', 'LangChain', 'Sentence-Transformers', 'Docker', 'Nginx']
+    },
+    'MM-CTR': {
+      name: 'WWW 2025 MM-CTR Challenge',
+      problem: 'Predicting click-through rates for short-video recommendations using multimodal data (images, text, categorical features) on a large-scale dataset of 3.6M training samples while achieving high AUC performance in a competitive setting.',
+      approach: 'Developed a hybrid deep learning model combining CLIP embeddings for multimodal understanding with specialized CTR prediction architectures. Used CLIP to encode images and text into 512D vectors, then compressed to normalized 128D features for efficiency.',
+      architecture: 'CLIP encoder (512D → 128D) → Feature fusion → 2-layer Transformer (8 heads) + Deep Cross Network + Dense layers. Categorical embeddings handled separately and concatenated. Trained on 2x Tesla T4 GPUs with gradient accumulation.',
+      results: 'Achieved 0.9495 validation AUC on the competition leaderboard. Successfully handled 3.6M training samples with efficient batch processing and achieved competitive performance in the WWW 2025 challenge.',
+      improvements: 'Would experiment with attention mechanisms between modalities, implement more sophisticated feature selection, try ensemble methods, and explore newer multimodal architectures like ALBEF or BLIP for better cross-modal understanding.',
+      technologies: ['PyTorch', 'CLIP', 'Transformers', 'Deep Cross Network', 'Hugging Face', 'Pandas', 'NumPy', 'Tesla T4 GPUs'],
+      githubUrl: 'https://github.com/AbdelilahElgallati/WWW-2025-MM-CTR-Challenge-Task-1-2-Solution'
+    },
+    'RAG': {
+      name: 'Course Materials RAG Assistant',
+      problem: 'Students needed an intelligent assistant to query course materials across different formats (PDFs, Markdown, YouTube transcripts) with accurate source attribution and multilingual support, while maintaining context relevance and avoiding hallucinations.',
+      approach: 'Built a RAG system using Sentence-Transformers for semantic embeddings (768D), FAISS for efficient vector search, and MMR for diversity. Implemented course-scoped retrieval with fallback mechanisms and integrated Llama 3.3 70B via Groq API.',
+      architecture: 'FastAPI backend with React frontend. Document processing pipeline: text extraction → chunking → embedding (Sentence-Transformers) → FAISS indexing. Query processing: embedding → similarity search → MMR reranking → context assembly → LLM generation.',
+      results: 'Successfully deployed a functional RAG assistant capable of answering questions from multiple document types with proper source attribution. Handles course-specific queries with high accuracy and provides multilingual responses.',
+      improvements: 'Would add hybrid search (combining dense and sparse retrieval), implement query expansion for better recall, add conversation memory for multi-turn interactions, and deploy on Hugging Face Spaces for public access.',
+      technologies: ['FastAPI', 'React', 'TypeScript', 'FAISS', 'Sentence-Transformers', 'Groq', 'Llama 3.3', 'LangChain', 'Streamlit'],
+      githubUrl: 'https://github.com/AbdelilahElgallati/Course-Materials-RAG'
+    }
+  };
+
+  const openCaseStudy = (projectName: string) => {
+    const caseStudyKey = projectName.includes('IVEP') ? 'IVEP' : 
+                       projectName.includes('MM-CTR') ? 'MM-CTR' : 
+                       projectName.includes('RAG') ? 'RAG' : null;
+    
+    if (caseStudyKey && caseStudies[caseStudyKey]) {
+      setSelectedCaseStudy(caseStudies[caseStudyKey]);
+    }
+  };
 
   return (
     <section id="projects" className="py-20 bg-white dark:bg-gray-900">
@@ -44,7 +89,7 @@ export const Projects: React.FC = () => {
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {featuredProjects.map((project, index) => (
-                <ProjectCard key={index} project={project} isFeatured={true} />
+                <ProjectCard key={index} project={project} isFeatured={true} onViewDetails={openCaseStudy} />
               ))}
             </div>
           </div>
@@ -56,7 +101,7 @@ export const Projects: React.FC = () => {
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {otherProjects.map((project, index) => (
-                <ProjectCard key={index} project={project} isFeatured={false} />
+                <ProjectCard key={index} project={project} isFeatured={false} onViewDetails={null} />
               ))}
             </div>
           </div>
@@ -74,6 +119,13 @@ export const Projects: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Case Study Modal */}
+      <CaseStudyModal 
+        isOpen={!!selectedCaseStudy} 
+        onClose={() => setSelectedCaseStudy(null)} 
+        caseStudy={selectedCaseStudy} 
+      />
     </section>
   );
 };
@@ -81,9 +133,10 @@ export const Projects: React.FC = () => {
 interface ProjectCardProps {
   project: Project;
   isFeatured: boolean;
+  onViewDetails: ((projectName: string) => void) | null;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project, isFeatured }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, isFeatured, onViewDetails }) => {
   const { t } = useLanguage();
   const hasGithubUrl = project.githubUrl && project.githubUrl !== null;
 
@@ -176,6 +229,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, isFeatured }) => {
                 </a>
               )}
             </div>
+            
+            {isFeatured && onViewDetails && (
+              <button
+                onClick={() => onViewDetails(project.name)}
+                className="text-xs text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium hover:bg-blue-50 dark:hover:bg-blue-900/20 px-2 py-1 rounded transition-all"
+              >
+                View Details →
+              </button>
+            )}
           </div>
         </div>
       </div>
