@@ -103,6 +103,30 @@ export const Hero: React.FC = () => {
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
                 <ArrowDown size={20} className="text-gray-400" />
             </div>
+
+            {/* Highlights Strip */}
+            <div className="absolute bottom-0 left-0 right-0 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-t border-gray-200 dark:border-gray-700 z-20">
+                <div className="container mx-auto px-4 py-6">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                        <div className="space-y-1">
+                            <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">3.6M</div>
+                            <div className="text-sm text-gray-600 dark:text-gray-400">Training samples</div>
+                        </div>
+                        <div className="space-y-1">
+                            <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">0.9495</div>
+                            <div className="text-sm text-gray-600 dark:text-gray-400">Validation AUC</div>
+                        </div>
+                        <div className="space-y-1">
+                            <div className="text-2xl font-bold text-green-600 dark:text-green-400">30+</div>
+                            <div className="text-sm text-gray-600 dark:text-gray-400">Backend modules</div>
+                        </div>
+                        <div className="space-y-1">
+                            <div className="text-2xl font-bold text-orange-600 dark:text-orange-400">3</div>
+                            <div className="text-sm text-gray-600 dark:text-gray-400">Languages (AR/FR/EN)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     );
 };
