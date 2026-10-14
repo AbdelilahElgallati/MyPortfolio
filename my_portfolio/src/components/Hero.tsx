@@ -84,7 +84,7 @@ export const Hero: React.FC = () => {
                     </div>
 
                     {/* Status */}
-                    <div className="inline-flex items-center gap-2 bg-teal-100 dark:bg-teal-900/40 text-teal-800 dark:text-teal-200 px-4 py-2 rounded-full font-medium animate-fade-in-delay-2 border border-teal-200 dark:border-teal-700">
+                    <div className="surface-tint-teal inline-flex items-center gap-2 text-teal-800 dark:text-teal-200 px-4 py-2 rounded-full font-medium animate-fade-in-delay-2 border border-teal-200 dark:border-teal-700">
                         <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
                         {t('hero.status')}
                     </div>
@@ -101,7 +101,7 @@ export const Hero: React.FC = () => {
                         <div className="flex flex-col items-center gap-2">
                             <button 
                                 onClick={() => handleDownloadCV()}
-                                className="inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-400 dark:border-slate-600 text-primary bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-full font-semibold hover:border-primary-500 hover:bg-white dark:hover:bg-slate-800 transition-all duration-300"
+                                className="surface-control inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-400 dark:border-slate-600 text-primary backdrop-blur-sm rounded-full font-semibold hover:border-primary-500 transition-all duration-300"
                             >
                                 <Download size={18} />
                                 <span>{t('hero.cv')}</span>

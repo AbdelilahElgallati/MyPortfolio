@@ -42,7 +42,7 @@ export const Experience: React.FC = () => {
                         {experience.technologies.map((tech: string, techIndex: number) => (
                           <span
                             key={techIndex}
-                            className="bg-primary-100 dark:bg-primary-900/40 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full text-sm font-medium"
+                            className="surface-tag text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full text-sm font-medium"
                           >
                             {tech}
                           </span>

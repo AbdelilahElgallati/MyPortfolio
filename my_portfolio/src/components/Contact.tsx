@@ -39,7 +39,7 @@ export const Contact: React.FC = () => {
 
             <div className="space-y-6">
               {/* Email */}
-              <div className="flex items-center space-x-4 p-4 bg-secondary rounded-lg hover:bg-primary-100 dark:hover:bg-primary-900/40 transition-colors">
+              <div className="surface-control surface-hover-primary flex items-center space-x-4 p-4 rounded-lg transition-colors">
                 <Mail className="text-primary-700 dark:text-primary-300" size={24} />
                 <div className="flex-1">
                   <h4 className="text-sm font-medium text-secondary">
@@ -55,7 +55,7 @@ export const Contact: React.FC = () => {
               </div>
 
               {/* Phone */}
-              <div className="flex items-center space-x-4 p-4 bg-secondary rounded-lg hover:bg-teal-100 dark:hover:bg-teal-900/40 transition-colors">
+              <div className="surface-control surface-hover-teal flex items-center space-x-4 p-4 rounded-lg transition-colors">
                 <Phone className="text-teal-700 dark:text-teal-300" size={24} />
                 <div className="flex-1">
                   <h4 className="text-sm font-medium text-secondary">

@@ -98,6 +98,14 @@
   --hero-start: #eff6ff;
   --hero-mid: #f0fdfa;
   --hero-end: #ccfbf1;
+  --surface-tint-primary: #eff6ff;
+  --surface-tint-teal: #f0fdfa;
+  --surface-tint-gradient-start: #f0fdfa;
+  --surface-tint-gradient-end: #eff6ff;
+  --surface-control: rgb(255 255 255 / 0.82);
+  --surface-control-hover: #ffffff;
+  --surface-tag: #e0f2fe;
+  --surface-tag-hover: #bae6fd;
 }
 
 .dark {
@@ -115,6 +123,14 @@
   --hero-start: #0f172a;
   --hero-mid: #102a43;
   --hero-end: #134e4a;
+  --surface-tint-primary: #173b5a;
+  --surface-tint-teal: #123f3d;
+  --surface-tint-gradient-start: #123f3d;
+  --surface-tint-gradient-end: #173b5a;
+  --surface-control: rgb(30 41 59 / 0.9);
+  --surface-control-hover: #334155;
+  --surface-tag: #164e63;
+  --surface-tag-hover: #155e75;
 }
 
 body {
@@ -168,6 +184,42 @@ select {
   background-color: var(--bg-card);
   border-color: var(--border-primary);
   box-shadow: var(--shadow-card);
+}
+
+.surface-tint-primary {
+  background-color: var(--surface-tint-primary);
+}
+
+.surface-tint-teal {
+  background-color: var(--surface-tint-teal);
+}
+
+.surface-tint-gradient {
+  background: linear-gradient(110deg, var(--surface-tint-gradient-start), var(--surface-tint-gradient-end));
+}
+
+.surface-control {
+  background-color: var(--surface-control);
+}
+
+.surface-control:hover {
+  background-color: var(--surface-control-hover);
+}
+
+.surface-tag {
+  background-color: var(--surface-tag);
+}
+
+.surface-tag:hover {
+  background-color: var(--surface-tag-hover);
+}
+
+.surface-hover-primary:hover {
+  background-color: var(--surface-tint-primary);
+}
+
+.surface-hover-teal:hover {
+  background-color: var(--surface-tint-teal);
 }
 
 .text-primary {

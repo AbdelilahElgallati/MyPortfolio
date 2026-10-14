@@ -75,7 +75,7 @@ export const Skills: React.FC = () => {
                   
                   <div className="flex flex-wrap gap-2">
                     {category.skills.map((skill, skillIndex) => (
-                      <div key={skillIndex} className="bg-secondary px-3 py-2 rounded-md text-sm font-medium text-secondary hover:bg-primary-100 dark:hover:bg-primary-900/40 transition-colors">
+                      <div key={skillIndex} className="surface-control surface-hover-primary px-3 py-2 rounded-md text-sm font-medium text-secondary transition-colors">
                         {skill}
                       </div>
                     ))}

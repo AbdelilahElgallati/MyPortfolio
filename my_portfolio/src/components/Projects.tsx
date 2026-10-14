@@ -107,7 +107,7 @@ export const Projects: React.FC = () => {
             <h2 className="font-display text-4xl font-bold text-primary mb-4">
               {t('projects.title')}
             </h2>
-            <p className="text-lg text-secondary">
+            <p className="mx-auto text-center text-lg text-secondary">
               {t('projects.description')}
             </p>
           </div>
@@ -217,7 +217,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, isFeatured, onViewDe
               {project.technologies.slice(0, 5).map((tech, techIndex) => (
                 <span
                   key={techIndex}
-                  className="bg-primary-100 dark:bg-primary-900/40 text-primary-800 dark:text-primary-200 px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-primary-200 dark:hover:bg-primary-900/60 transition-colors"
+                  className="surface-tag text-primary-800 dark:text-primary-200 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors"
                 >
                   {tech}
                 </span>
@@ -265,7 +265,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, isFeatured, onViewDe
             {isFeatured && onViewDetails && (
               <button
                 onClick={() => onViewDetails(project.name)}
-                className="min-h-11 text-xs text-primary-700 dark:text-primary-300 hover:text-primary-800 dark:hover:text-primary-200 font-medium hover:bg-primary-50 dark:hover:bg-primary-900/20 px-2 py-1 rounded transition-all"
+                className="surface-hover-primary min-h-11 text-xs text-primary-700 dark:text-primary-300 hover:text-primary-800 dark:hover:text-primary-200 font-medium px-2 py-1 rounded transition-all"
               >
                 {t('projects.details')} →
               </button>

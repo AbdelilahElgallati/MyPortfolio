@@ -81,7 +81,7 @@ export const About: React.FC = () => {
               {/* Key Info Grid */}
               <div className="grid md:grid-cols-2 gap-6">
                 {/* Education & Status */}
-                <div className="bg-primary-50 dark:bg-primary-900/30 p-5 rounded-lg border border-primary-200 dark:border-primary-700">
+                <div className="surface-tint-primary p-5 rounded-lg border border-primary-200 dark:border-primary-700">
                   <h3 className="font-semibold text-primary mb-3">{t('about.educationStatusTitle')}</h3>
                   <div className="space-y-2 text-sm text-secondary">
                     <div>🎓 Dual Master's degrees (2026)</div>
@@ -91,7 +91,7 @@ export const About: React.FC = () => {
                 </div>
 
                 {/* Languages */}
-                <div className="bg-teal-50 dark:bg-teal-900/30 p-5 rounded-lg border border-teal-200 dark:border-teal-700">
+                <div className="surface-tint-teal p-5 rounded-lg border border-teal-200 dark:border-teal-700">
                   <h3 className="font-semibold text-primary mb-3">{t("about.languagesTitle")}</h3>
                   <div className="space-y-1 text-sm">
                     {languages.map((lang, index) => (
@@ -105,7 +105,7 @@ export const About: React.FC = () => {
               </div>
 
               {/* Seeking */}
-              <div className="bg-gradient-to-r from-teal-50 to-primary-50 dark:from-teal-900/30 dark:to-primary-900/30 p-5 rounded-lg border border-teal-200 dark:border-teal-700">
+              <div className="surface-tint-gradient p-5 rounded-lg border border-teal-200 dark:border-teal-700">
                 <h3 className="font-semibold text-primary mb-2">{t('about.currentlySeekingTitle')}</h3>
                 <p className="text-sm text-secondary">
                   {t('about.currentlySeeking')}

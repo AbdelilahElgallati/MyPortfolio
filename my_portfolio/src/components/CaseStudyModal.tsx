@@ -87,7 +87,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ isOpen, onClose,
           <button
             ref={closeButtonRef}
             onClick={onClose}
-            className="min-w-11 min-h-11 p-2 hover:bg-primary-100 dark:hover:bg-primary-900/40 rounded-lg transition-colors"
+            className="surface-hover-primary min-w-11 min-h-11 p-2 rounded-lg transition-colors"
             aria-label={t('caseStudy.close')}
           >
             <X size={24} className="text-secondary" aria-hidden="true" />
@@ -138,7 +138,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ isOpen, onClose,
               {caseStudy.technologies.map((tech, index) => (
                 <span
                   key={index}
-                  className="bg-primary-100 dark:bg-primary-900/40 text-primary-800 dark:text-primary-200 px-3 py-2 rounded-lg text-sm font-medium"
+                  className="surface-tag text-primary-800 dark:text-primary-200 px-3 py-2 rounded-lg text-sm font-medium"
                 >
                   {tech}
                 </span>
