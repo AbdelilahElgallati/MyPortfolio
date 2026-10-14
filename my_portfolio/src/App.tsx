@@ -9,11 +9,13 @@ import { Skills } from './components/Skills';
 import { Projects } from './components/Projects';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { Seo } from './components/Seo';
 
 function App() {
   return (
     <ThemeProvider>
       <LanguageProvider>
+        <Seo />
         <div className="min-h-screen surface-page transition-colors duration-300">
           <Header />
           <main>

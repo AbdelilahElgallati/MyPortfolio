@@ -16,7 +16,13 @@ export const translations = {
             status: 'Available immediately - open to relocation',
             cta: 'Explore My Work',
             cv: 'Download CV',
-            cvSecondary: 'Download in French'
+            cvSecondary: 'Download in French',
+            highlights: [
+                { value: '3.6M', label: 'Training samples' },
+                { value: '0.9495', label: 'Validation AUC' },
+                { value: '30+', label: 'Backend modules' },
+                { value: '3', label: 'Languages (AR/FR/EN)' }
+            ]
         },
         about: {
             title: 'About Me',
@@ -24,6 +30,11 @@ export const translations = {
             status: 'I am actively looking for a junior role in AI / ML engineering, GenAI & NLP, data science or software engineering. I am available immediately, open to relocation worldwide, comfortable with business travel, and happy to work remotely.',
             funFact: 'Fun fact: I can debug code faster with a cup of coffee! ☕',
             languagesTitle: 'Languages',
+            educationStatusTitle: 'Education & Status',
+            available: 'Available immediately',
+            relocation: 'Open to relocation worldwide',
+            currentlySeekingTitle: 'Currently seeking',
+            currentlySeeking: 'Junior roles in AI/ML Engineering, GenAI/NLP, Data Science, or Full-Stack Development',
             languages: [
                 { name: 'Arabic', level: 'Native' },
                 { name: 'French', level: 'Fluent' },
@@ -38,6 +49,8 @@ export const translations = {
         },
         formations: {
             title: 'Education',
+            educationTitle: 'Education',
+            certificationsTitle: 'Certifications',
             items: [
                 {
                     degree: 'Master 2 (M2) in Computer Science for Data Exploration and Decision Support (EIDD)',
@@ -70,7 +83,6 @@ export const translations = {
                     description: 'Advanced mathematics and scientific studies.'
                 }
             ],
-            certificationsTitle: 'Certifications',
             certifications: [
                 { name: 'Data Ingestion with Pandas', issuer: '365 Data Science', year: '2025' },
                 { name: 'Machine Learning in Python', issuer: '365 Data Science', year: '2025' },
@@ -119,7 +131,8 @@ export const translations = {
                 ml_data: 'ML & Data Science',
                 backend_mlops: 'Backend & MLOps',
                 frontend: 'Frontend'
-            }
+            },
+            description: 'Core technologies for production-oriented AI systems'
         },
         projects: {
             title: 'Projects',
@@ -127,6 +140,11 @@ export const translations = {
             viewGithub: 'View on GitHub',
             liveDemo: 'Live Demo',
             privateRepo: 'Private repository (internship project)',
+            private: 'Private',
+            code: 'Code',
+            live: 'Live',
+            details: 'View details',
+            viewMore: 'View more on GitHub',
             featured: 'Featured',
             others: 'More Projects',
             loading: 'Loading projects...',
@@ -277,12 +295,16 @@ export const translations = {
                 availabilityValue: 'Full-time roles, internships, remote and international opportunities',
                 linkedin: 'https://linkedin.com/in/abdelilah-elgallati',
                 github: 'https://github.com/AbdelilahElgallati'
-            }
+            },
+            connect: 'Connect with me'
         },
         footer: {
             rights: 'All rights reserved.',
             email: 'abdelilah.elgallati6@gmail.com',
-            contact: 'Contact'
+            contact: 'Contact',
+            connect: 'Connect',
+            madeWith: 'Made with',
+            coffee: 'and lots of coffee'
         }
     },
     fr: {
@@ -302,7 +324,13 @@ export const translations = {
             status: 'Disponible immédiatement - ouvert à la relocalisation',
             cta: 'Découvrir Mon Travail',
             cv: 'Télécharger le CV',
-            cvSecondary: 'Télécharger en anglais'
+            cvSecondary: 'Télécharger en anglais',
+            highlights: [
+                { value: '3,6M', label: 'Échantillons d’entraînement' },
+                { value: '0,9495', label: 'AUC de validation' },
+                { value: '30+', label: 'Modules backend' },
+                { value: '3', label: 'Langues (AR/FR/EN)' }
+            ]
         },
         about: {
             title: 'À Propos de Moi',
@@ -310,6 +338,11 @@ export const translations = {
             status: 'Je recherche activement un poste junior en ingénierie IA / ML, GenAI & NLP, data science ou génie logiciel. Je suis disponible immédiatement, ouvert à la mobilité internationale et aux déplacements professionnels, et à l\'aise avec le télétravail.',
             funFact: 'Fait amusant : Je peux déboguer du code plus rapidement avec une tasse de café ! ☕',
             languagesTitle: 'Langues',
+            educationStatusTitle: 'Formation et disponibilité',
+            available: 'Disponible immédiatement',
+            relocation: 'Ouvert à la mobilité internationale',
+            currentlySeekingTitle: 'Recherche actuellement',
+            currentlySeeking: 'Postes juniors en ingénierie IA/ML, GenAI/NLP, data science ou développement full-stack',
             languages: [
                 { name: 'Arabe', level: 'Langue maternelle' },
                 { name: 'Français', level: 'Courant' },
@@ -324,6 +357,8 @@ export const translations = {
         },
         formations: {
             title: 'Formation',
+            educationTitle: 'Formation',
+            certificationsTitle: 'Certifications',
             items: [
                 {
                     degree: 'Master 2, Informatique pour l\'Exploration des Données et l\'Aide à la Décision (EIDD)',
@@ -356,7 +391,6 @@ export const translations = {
                     description: 'Études avancées en mathématiques et sciences.'
                 }
             ],
-            certificationsTitle: 'Certifications',
             certifications: [
                 { name: 'Data Ingestion with Pandas', issuer: '365 Data Science', year: '2025' },
                 { name: 'Machine Learning in Python', issuer: '365 Data Science', year: '2025' },
@@ -405,7 +439,8 @@ export const translations = {
                 ml_data: 'ML & Data Science',
                 backend_mlops: 'Backend & MLOps',
                 frontend: 'Frontend'
-            }
+            },
+            description: 'Technologies clés pour des systèmes IA orientés production'
         },
         projects: {
             title: 'Projets',
@@ -413,6 +448,11 @@ export const translations = {
             viewGithub: 'Voir sur GitHub',
             liveDemo: 'Démo Live',
             privateRepo: 'Dépôt privé (projet de stage)',
+            private: 'Privé',
+            code: 'Code',
+            live: 'En ligne',
+            details: 'Voir les détails',
+            viewMore: 'Voir plus sur GitHub',
             featured: 'À la une',
             others: 'Autres Projets',
             loading: 'Chargement des projets...',
@@ -563,12 +603,16 @@ export const translations = {
                 availabilityValue: 'CDI/CDD, stages, télétravail et opportunités internationales',
                 linkedin: 'https://linkedin.com/in/abdelilah-elgallati',
                 github: 'https://github.com/AbdelilahElgallati'
-            }
+            },
+            connect: 'Me contacter'
         },
         footer: {
             rights: 'Tous droits réservés.',
             email: 'abdelilah.elgallati6@gmail.com',
-            contact: 'Contact'
+            contact: 'Contact',
+            connect: 'Réseaux',
+            madeWith: 'Fait avec',
+            coffee: 'et beaucoup de café'
         }
     }
 };

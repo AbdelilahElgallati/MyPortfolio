@@ -4,7 +4,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { useTheme } from '../contexts/ThemeContext';
 
 export const Header: React.FC = () => {
-  const { t, toggleLanguage } = useLanguage();
+  const { t, language, toggleLanguage } = useLanguage();
   const { theme, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,7 +19,7 @@ export const Header: React.FC = () => {
   }, []);
 
   const navItems = [
-    { id: 'home', label: t('nav.home') },
+    { id: 'hero', label: t('nav.home') },
     { id: 'about', label: t('nav.about') },
     { id: 'formations', label: t('nav.formations') },
     { id: 'experience', label: t('nav.experience') },
@@ -55,10 +55,10 @@ export const Header: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo/Name */}
           <a
-            href="#home"
+            href="#hero"
             onClick={(e) => {
               e.preventDefault();
-              scrollToSection('home');
+              scrollToSection('hero');
             }}
             className="text-2xl font-bold text-primary hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
           >
@@ -90,7 +90,7 @@ export const Header: React.FC = () => {
             <button
               onClick={toggleLanguage}
               className="min-w-11 min-h-11 p-2 text-secondary hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
-              aria-label="Toggle language"
+              aria-label={language === 'en' ? 'Switch to French' : 'Passer à l’anglais'}
             >
               <Languages size={20} />
             </button>
@@ -132,7 +132,7 @@ export const Header: React.FC = () => {
                 <button
                   onClick={toggleLanguage}
                   className="min-w-11 min-h-11 p-2 text-secondary hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
-                  aria-label="Toggle language"
+                  aria-label={language === 'en' ? 'Switch to French' : 'Passer à l’anglais'}
                 >
                   <Languages size={20} />
                 </button>

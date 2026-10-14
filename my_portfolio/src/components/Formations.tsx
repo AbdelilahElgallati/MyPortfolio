@@ -22,7 +22,7 @@ export const Formations: React.FC = () => {
             <div>
               <h3 className="text-2xl font-semibold text-primary mb-6 flex items-center">
                 <GraduationCap className="mr-2" size={24} />
-                Education
+                {t('formations.educationTitle')}
               </h3>
               <div className="space-y-8">
                 {formations.map((formation, index) => (
@@ -57,7 +57,7 @@ export const Formations: React.FC = () => {
             <div>
               <h3 className="text-2xl font-semibold text-primary mb-6 flex items-center">
                 <Award className="mr-2" size={24} />
-                Certifications
+                {t('formations.certificationsTitle')}
               </h3>
               <div className="space-y-4">
                 {certifications.map((cert, index) => (

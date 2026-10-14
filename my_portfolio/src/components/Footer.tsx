@@ -40,7 +40,7 @@ export const Footer: React.FC = () => {
 
             {/* Social Links */}
             <div className="space-y-4">
-              <h3 className="font-bold text-lg">Connect</h3>
+              <h3 className="font-bold text-lg">{t('footer.connect')}</h3>
               <div className="flex space-x-4">
                 <a
                   href="https://github.com/AbdelilahElgallati"
@@ -70,9 +70,9 @@ export const Footer: React.FC = () => {
               © {currentYear} {t('hero.name')}. {t('footer.rights')}
             </p>
             <div className="flex items-center space-x-1 text-slate-300 text-sm mt-4 md:mt-0">
-              <span>Made with</span>
+              <span>{t('footer.madeWith')}</span>
               <Heart size={16} className="text-red-500 animate-pulse" />
-              <span>and lots of coffee</span>
+              <span>{t('footer.coffee')}</span>
             </div>
           </div>
         </div>

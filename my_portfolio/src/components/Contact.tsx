@@ -123,7 +123,7 @@ export const Contact: React.FC = () => {
             {/* Social Media Links */}
             <div className="mt-8 pt-8 border-t border-default">
               <h4 className="text-lg font-semibold text-primary mb-6 text-center">
-                Connect with me
+                {t('contact.connect')}
               </h4>
               <div className="flex justify-center space-x-6">
                 <a

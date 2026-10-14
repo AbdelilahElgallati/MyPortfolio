@@ -58,14 +58,44 @@ export const Projects: React.FC = () => {
       githubUrl: 'https://github.com/AbdelilahElgallati/Course-Materials-RAG'
     }
   };
+  const localizedCaseStudies = language === 'fr' ? {
+    ...caseStudies,
+    IVEP: {
+      ...caseStudies.IVEP,
+      name: 'IVEP - Plateforme d’exposition virtuelle',
+      problem: 'La création d’une plateforme SaaS d’expositions virtuelles assistée par IA nécessitait plusieurs rôles utilisateurs, des interactions en temps réel, un support multilingue et une logique métier complexe.',
+      approach: 'Mise en place d’une architecture modulaire avec FastAPI et plus de 30 modules backend. Développement d’un assistant conversationnel RAG avec Sentence-Transformers et ChromaDB, ainsi que de fonctions temps réel avec WebSockets/SSE et Redis pub/sub.',
+      architecture: 'Backend FastAPI avec MongoDB, Redis, ChromaDB, Docker et Nginx. Frontend Next.js/TypeScript. Pipelines IA avec Whisper pour la transcription, NLLB-200 pour la traduction et LangChain pour l’orchestration.',
+      results: 'Développement d’une plateforme privée fonctionnelle avec gestion multi-rôles, collaboration temps réel, assistance IA multilingue et flux métier intégrés. Les métriques commerciales confidentielles sont volontairement exclues.',
+      improvements: 'Ajouter une orchestration Kubernetes, une recherche hybride dense/sparse, une supervision Grafana/Prometheus et un système de recommandation enrichi par le filtrage collaboratif.'
+    },
+    'MM-CTR': {
+      ...caseStudies['MM-CTR'],
+      name: 'Challenge WWW 2025 MM-CTR',
+      problem: 'Prédire le taux de clic pour la recommandation de vidéos courtes à partir de données multimodales (images, texte et variables catégorielles) sur 3,6M d’échantillons d’entraînement.',
+      approach: 'Développement d’un modèle hybride combinant les embeddings CLIP pour la compréhension multimodale et des architectures spécialisées pour la prédiction CTR. Les vecteurs CLIP 512D sont projetés en caractéristiques normalisées 128D.',
+      architecture: 'Encodeur CLIP (512D → 128D), fusion, Transformer de 2 couches et 8 têtes, Deep Cross Network et couches denses. Entraînement sur 2 GPU Tesla T4 avec accumulation de gradients.',
+      results: 'AUC de validation de 0,9495 sur le leaderboard de la compétition. Le pipeline a traité 3,6M d’échantillons d’entraînement.',
+      improvements: 'Tester des mécanismes d’attention intermodale, une sélection de caractéristiques plus avancée, des ensembles de modèles et de nouvelles architectures multimodales.'
+    },
+    RAG: {
+      ...caseStudies.RAG,
+      name: 'Assistant RAG pour supports de cours',
+      problem: 'Les étudiants avaient besoin d’un assistant capable d’interroger des supports de cours PDF, Markdown et des transcriptions YouTube, avec attribution des sources et support multilingue.',
+      approach: 'Construction d’un système RAG avec Sentence-Transformers, FAISS et MMR. La récupération est limitée au cours sélectionné avec un repli global, puis les réponses sont générées via Llama 3.3 70B et Groq.',
+      architecture: 'Backend FastAPI et frontend React. Pipeline : extraction, découpage, embeddings, index FAISS, recherche, réordonnancement MMR, assemblage du contexte et génération.',
+      results: 'Assistant fonctionnel capable de répondre à partir de plusieurs formats avec attribution des sources et prise en charge de requêtes liées à un cours.',
+      improvements: 'Ajouter une recherche hybride, l’expansion des requêtes, une mémoire conversationnelle multi-tour et un déploiement public.'
+    }
+  } : caseStudies;
 
   const openCaseStudy = (projectName: string) => {
-    const caseStudyKey: keyof typeof caseStudies | null = projectName.includes('IVEP') ? 'IVEP' : 
+    const caseStudyKey: keyof typeof caseStudies | null = projectName.includes('IVEP') ? 'IVEP' :
                        projectName.includes('MM-CTR') ? 'MM-CTR' : 
                        projectName.includes('RAG') ? 'RAG' : null;
     
-    if (caseStudyKey && caseStudies[caseStudyKey]) {
-      setSelectedCaseStudy(caseStudies[caseStudyKey]);
+    if (caseStudyKey && localizedCaseStudies[caseStudyKey]) {
+      setSelectedCaseStudy(localizedCaseStudies[caseStudyKey]);
     }
   };
 
@@ -114,7 +144,7 @@ export const Projects: React.FC = () => {
               className="inline-flex items-center space-x-2 bg-slate-800 text-white px-6 py-3 rounded-lg font-medium hover:bg-slate-700 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               <Github size={18} />
-              <span>View More on GitHub</span>
+              <span>{t('projects.viewMore')}</span>
             </a>
           </div>
         </div>
@@ -122,10 +152,10 @@ export const Projects: React.FC = () => {
 
       {/* Case Study Modal */}
       {selectedCaseStudy && (
-        <CaseStudyModal 
-          isOpen={true} 
-          onClose={() => setSelectedCaseStudy(null)} 
-          caseStudy={selectedCaseStudy} 
+        <CaseStudyModal
+          isOpen={true}
+          onClose={() => setSelectedCaseStudy(null)}
+          caseStudy={selectedCaseStudy}
         />
       )}
     </section>
@@ -211,11 +241,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, isFeatured, onViewDe
                   title={t('projects.viewGithub')}
                 >
                   <Github size={16} className="group-hover/link:scale-110 transition-transform" />
-                  <span>Code</span>
+                  <span>{t('projects.code')}</span>
                 </a>
               ) : (
                 <span className="text-muted text-xs italic">
-                  Private
+                  {t('projects.private')}
                 </span>
               )}
               
@@ -227,7 +257,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, isFeatured, onViewDe
                   className="inline-flex items-center gap-2 text-sm font-medium text-teal-700 dark:text-teal-300 hover:text-teal-800 dark:hover:text-teal-200 transition-colors group/demo"
                 >
                   <span className="group-hover/demo:scale-110 transition-transform">🚀</span>
-                  <span>Live</span>
+                  <span>{t('projects.live')}</span>
                 </a>
               )}
             </div>
@@ -237,7 +267,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, isFeatured, onViewDe
                 onClick={() => onViewDetails(project.name)}
                 className="min-h-11 text-xs text-primary-700 dark:text-primary-300 hover:text-primary-800 dark:hover:text-primary-200 font-medium hover:bg-primary-50 dark:hover:bg-primary-900/20 px-2 py-1 rounded transition-all"
               >
-                View Details →
+                {t('projects.details')} →
               </button>
             )}
           </div>

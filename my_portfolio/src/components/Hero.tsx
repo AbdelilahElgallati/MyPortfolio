@@ -1,14 +1,13 @@
-import React, { Suspense, useEffect, useState } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { Download, ArrowDown } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { FloatingCube } from './3D/FloatingCube';
-import { AnimatedSphere } from './3D/AnimatedSphere';
+
+const HeroScene = lazy(() => import('./HeroScene').then((module) => ({ default: module.HeroScene })));
 
 export const Hero: React.FC = () => {
     const { t, language } = useLanguage();
     const [showScene, setShowScene] = useState(false);
+    const highlights = t('hero.highlights', { returnObjects: true }) as readonly Highlight[];
 
     useEffect(() => {
         const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -51,18 +50,9 @@ export const Hero: React.FC = () => {
             {/* 3D Background */}
             {showScene && (
                 <div className="absolute inset-0 opacity-30 dark:opacity-20" aria-hidden="true">
-                    <Canvas>
-                        <PerspectiveCamera makeDefault position={[0, 0, 5]} />
-                        <ambientLight intensity={0.5} />
-                        <pointLight position={[10, 10, 10]} />
-                        <Suspense fallback={null}>
-                            <FloatingCube position={[-3, 2, 0]} scale={0.8} color="#0284C7" />
-                            <AnimatedSphere position={[3, -1, 0]} scale={0.6} color="#14B8A6" />
-                            <FloatingCube position={[0, -3, -2]} scale={0.5} color="#0D9488" />
-                            <AnimatedSphere position={[-2, -2, -1]} scale={0.4} color="#F59E0B" />
-                        </Suspense>
-                        <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
-                    </Canvas>
+                    <Suspense fallback={null}>
+                        <HeroScene />
+                    </Suspense>
                 </div>
             )}
 
@@ -137,25 +127,22 @@ export const Hero: React.FC = () => {
             <div className="absolute bottom-0 left-0 right-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-default z-20 shadow-lg">
                 <div className="container mx-auto px-4 py-6">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                        <div className="space-y-1">
-                            <div className="text-2xl font-bold text-primary-700 dark:text-primary-300">3.6M</div>
-                            <div className="text-sm text-secondary font-medium">Training samples</div>
-                        </div>
-                        <div className="space-y-1">
-                            <div className="text-2xl font-bold text-teal-700 dark:text-teal-300">0.9495</div>
-                            <div className="text-sm text-secondary font-medium">Validation AUC</div>
-                        </div>
-                        <div className="space-y-1">
-                            <div className="text-2xl font-bold text-teal-700 dark:text-teal-300">30+</div>
-                            <div className="text-sm text-secondary font-medium">Backend modules</div>
-                        </div>
-                        <div className="space-y-1">
-                            <div className="text-2xl font-bold text-accent-700 dark:text-accent-300">3</div>
-                            <div className="text-sm text-secondary font-medium">Languages (AR/FR/EN)</div>
-                        </div>
+                        {highlights.map((highlight, index) => (
+                            <div className="space-y-1" key={highlight.value}>
+                                <div className={`text-2xl font-bold ${index === 0 ? 'text-primary-700 dark:text-primary-300' : index === 3 ? 'text-accent-700 dark:text-accent-300' : 'text-teal-700 dark:text-teal-300'}`}>
+                                    {highlight.value}
+                                </div>
+                                <div className="text-sm text-secondary font-medium">{highlight.label}</div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
         </section>
     );
 };
+
+interface Highlight {
+    value: string;
+    label: string;
+}

@@ -52,7 +52,7 @@ export const Skills: React.FC = () => {
               {t('skills.title')}
             </h2>
             <p className="text-secondary">
-              Core technologies for production-oriented AI systems
+              {t('skills.description')}
             </p>
           </div>
 

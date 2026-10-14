@@ -40,6 +40,8 @@ export const About: React.FC = () => {
                 <img
                   src={profileImage}
                   alt={t("hero.name")}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                   style={{
                     objectPosition: "50% 20%",
@@ -72,8 +74,7 @@ export const About: React.FC = () => {
               {/* Bio - Only essential info */}
               <div>
                 <p className="text-secondary leading-relaxed max-w-3xl">
-                  AI & Data engineer with dual Master's degrees (Sorbonne Paris Nord & USMBA, July 2026). 
-                  I build production-oriented AI systems - from 3.6M-sample ML pipelines to full-stack SaaS platforms with RAG and real-time features.
+                  {t('about.bio')}
                 </p>
               </div>
 
@@ -81,11 +82,11 @@ export const About: React.FC = () => {
               <div className="grid md:grid-cols-2 gap-6">
                 {/* Education & Status */}
                 <div className="bg-primary-50 dark:bg-primary-900/30 p-5 rounded-lg border border-primary-200 dark:border-primary-700">
-                  <h3 className="font-semibold text-primary mb-3">Education & Status</h3>
+                  <h3 className="font-semibold text-primary mb-3">{t('about.educationStatusTitle')}</h3>
                   <div className="space-y-2 text-sm text-secondary">
                     <div>🎓 Dual Master's degrees (2026)</div>
-                    <div>🚀 Available immediately</div>
-                    <div>🌍 Open to relocation worldwide</div>
+                    <div>🚀 {t('about.available')}</div>
+                    <div>🌍 {t('about.relocation')}</div>
                   </div>
                 </div>
 
@@ -105,9 +106,9 @@ export const About: React.FC = () => {
 
               {/* Seeking */}
               <div className="bg-gradient-to-r from-teal-50 to-primary-50 dark:from-teal-900/30 dark:to-primary-900/30 p-5 rounded-lg border border-teal-200 dark:border-teal-700">
-                <h3 className="font-semibold text-primary mb-2">Currently Seeking</h3>
+                <h3 className="font-semibold text-primary mb-2">{t('about.currentlySeekingTitle')}</h3>
                 <p className="text-sm text-secondary">
-                  Junior roles in AI/ML Engineering, GenAI/NLP, Data Science, or Full-Stack Development
+                  {t('about.currentlySeeking')}
                 </p>
               </div>
             </div>
