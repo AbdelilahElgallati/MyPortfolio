@@ -78,7 +78,7 @@ export const Hero: React.FC = () => {
                             {t('hero.title')}
                         </h2>
                         
-                        <p className="text-lg text-secondary animate-fade-in-delay-2 drop-shadow-sm">
+                        <p className="mx-auto text-lg text-secondary animate-fade-in-delay-2 drop-shadow-sm">
                             {t('hero.tagline')}
                         </p>
                     </div>
