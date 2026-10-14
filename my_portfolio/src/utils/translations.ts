@@ -86,11 +86,11 @@ export const translations = {
                     title: 'AI & MLOps Engineer Intern',
                     company: 'eGlobal Digital, Casablanca',
                     duration: '02/2026 - 07/2026',
-                    description: 'Contributed to IVEP, an AI-powered SaaS virtual-exhibition platform with immersive 3D environments and Admin, Organizer, Enterprise and Visitor portals. Worked on RAG-based assistance, multilingual translation and Whisper transcription, built recommendation/matchmaking features, and worked across backend, AI, data and deployment (Docker, Redis, WebSockets/SSE).',
-                    technologies: ['FastAPI', 'Next.js', 'MongoDB', 'Redis', 'Docker', 'RAG', 'Whisper', 'WebSockets/SSE']
+                    description: 'Led AI development for IVEP, a multi-role SaaS virtual exhibition platform. Key contributions: • Scoped RAG conversational services using Sentence-Transformers, LangChain, and ChromaDB • Built Whisper transcription and NLLB-200 EN/FR/AR translation pipelines • Developed hybrid recommendation/matchmaking pipeline with temporal train/test evaluation • Architected FastAPI/MongoDB/Redis/Docker backend in a 30+ module multi-role SaaS platform',
+                    technologies: ['FastAPI', 'Next.js', 'MongoDB', 'Redis', 'Docker', 'RAG', 'LangChain', 'ChromaDB', 'Whisper', 'NLLB-200', 'Sentence-Transformers']
                 },
                 {
-                    title: 'Web Developer Intern',
+                    title: 'Full-Stack Developer Intern',
                     company: 'Big4Com, Marrakech',
                     duration: '04/2024 - 06/2024',
                     description: 'Developed MyInvoice, an automated invoicing platform for small businesses and freelancers. Designed RESTful APIs and built a React frontend with customer management and PDF invoice generation.',
@@ -375,11 +375,11 @@ export const translations = {
                     title: 'Stagiaire Ingénieur IA & MLOps',
                     company: 'eGlobal Digital, Casablanca',
                     duration: '02/2026 - 07/2026',
-                    description: 'Contribution à IVEP, une plateforme SaaS d\'exposition virtuelle propulsée par l\'IA, avec environnements 3D immersifs et portails Admin, Organisateur, Entreprise et Visiteur. Travail sur l\'assistance RAG, la traduction multilingue et la transcription Whisper, développement de fonctionnalités de recommandation/matchmaking, et travail transversal sur le backend, l\'IA, la data et le déploiement (Docker, Redis, WebSockets/SSE).',
-                    technologies: ['FastAPI', 'Next.js', 'MongoDB', 'Redis', 'Docker', 'RAG', 'Whisper', 'WebSockets/SSE']
+                    description: 'Direction du développement IA pour IVEP, plateforme SaaS d\'exposition virtuelle multi-rôles. Contributions clés : • Services conversationnels RAG avec Sentence-Transformers, LangChain et ChromaDB • Pipelines de transcription Whisper et traduction NLLB-200 EN/FR/AR • Pipeline hybride de recommandation/matchmaking avec évaluation temporelle train/test • Architecture backend FastAPI/MongoDB/Redis/Docker dans une plateforme SaaS 30+ modules',
+                    technologies: ['FastAPI', 'Next.js', 'MongoDB', 'Redis', 'Docker', 'RAG', 'LangChain', 'ChromaDB', 'Whisper', 'NLLB-200', 'Sentence-Transformers']
                 },
                 {
-                    title: 'Stagiaire Développeur Web',
+                    title: 'Stagiaire Développeur Full-Stack',
                     company: 'Big4Com, Marrakech',
                     duration: '04/2024 - 06/2024',
                     description: 'Développement de MyInvoice, une plateforme de facturation automatisée pour petites entreprises et freelances. Conception d\'API RESTful et d\'un frontend React avec gestion des clients et génération de factures PDF.',
