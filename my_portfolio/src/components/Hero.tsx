@@ -5,8 +5,6 @@ import { Download, ArrowDown } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { FloatingCube } from './3D/FloatingCube';
 import { AnimatedSphere } from './3D/AnimatedSphere';
-import cvFileEn from "../ressources/files/Abdelilah_Elgallati_CV_En.pdf";
-import cvFileFr from "../ressources/files/Abdelilah_Elgallati_CV_Fr.pdf";
 
 export const Hero: React.FC = () => {
     const { t, language } = useLanguage();
@@ -18,12 +16,13 @@ export const Hero: React.FC = () => {
         }
     };
 
-    const handleDownloadCV = () => {
-        const cvFile = language === 'fr' ? cvFileFr : cvFileEn;
-        const fileName = language === 'fr' ? 'Abdelilah_Elgallati_CV_FR.pdf' : 'Abdelilah_Elgallati_CV_EN.pdf';
+    const handleDownloadCV = (lang?: 'en' | 'fr') => {
+        const targetLang = lang || language;
+        const cvPath = targetLang === 'fr' ? '/cv/Abdelilah_Elgallati_CV_FR.pdf' : '/cv/Abdelilah_Elgallati_CV_EN.pdf';
+        const fileName = targetLang === 'fr' ? 'Abdelilah_Elgallati_CV_FR.pdf' : 'Abdelilah_Elgallati_CV_EN.pdf';
         
         const link = document.createElement("a");
-        link.href = cvFile;
+        link.href = cvPath;
         link.download = fileName;
         document.body.appendChild(link);
         link.click();
@@ -80,13 +79,22 @@ export const Hero: React.FC = () => {
                             {t('hero.cta')}
                         </button>
                         
-                        <button 
-                            onClick={handleDownloadCV}
-                            className="inline-flex items-center gap-2 px-6 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-full font-semibold hover:border-blue-500 transition-all duration-300"
-                        >
-                            <Download size={18} />
-                            <span>{t('hero.cv')}</span>
-                        </button>
+                        <div className="flex flex-col items-center gap-2">
+                            <button 
+                                onClick={() => handleDownloadCV()}
+                                className="inline-flex items-center gap-2 px-6 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-full font-semibold hover:border-blue-500 transition-all duration-300"
+                            >
+                                <Download size={18} />
+                                <span>{t('hero.cv')}</span>
+                            </button>
+                            
+                            <button 
+                                onClick={() => handleDownloadCV(language === 'en' ? 'fr' : 'en')}
+                                className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                            >
+                                {t('hero.cvSecondary')}
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

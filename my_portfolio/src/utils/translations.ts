@@ -15,7 +15,8 @@ export const translations = {
             tagline: 'Turning data into intelligent, production-ready products',
             status: 'Master\'s graduate (July 2026) · Available immediately',
             cta: 'Explore My Work',
-            cv: 'Download CV'
+            cv: 'Download CV',
+            cvSecondary: 'Download in French'
         },
         about: {
             title: 'About Me',
@@ -303,7 +304,8 @@ export const translations = {
             tagline: 'Transformer les données en produits intelligents prêts pour la production',
             status: 'Diplômé de Master (juillet 2026) · Disponible immédiatement',
             cta: 'Découvrir Mon Travail',
-            cv: 'Télécharger le CV'
+            cv: 'Télécharger le CV',
+            cvSecondary: 'Télécharger en anglais'
         },
         about: {
             title: 'À Propos de Moi',

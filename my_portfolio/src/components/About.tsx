@@ -3,18 +3,17 @@ import { Download } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 import { translations } from "../utils/translations";
 import profileImage from "../ressources/images/My_Profile_Image.png";
-import cvFileEn from "../ressources/files/Abdelilah_Elgallati_CV_En.pdf";
-import cvFileFr from "../ressources/files/Abdelilah_Elgallati_CV_Fr.pdf";
 
 export const About: React.FC = () => {
   const { t, language } = useLanguage();
 
-  const handleDownloadCV = () => {
-    const cvFile = language === 'fr' ? cvFileFr : cvFileEn;
-    const fileName = language === 'fr' ? 'Abdelilah_Elgallati_CV_FR.pdf' : 'Abdelilah_Elgallati_CV_EN.pdf';
+  const handleDownloadCV = (lang?: 'en' | 'fr') => {
+    const targetLang = lang || language;
+    const cvPath = targetLang === 'fr' ? '/cv/Abdelilah_Elgallati_CV_FR.pdf' : '/cv/Abdelilah_Elgallati_CV_EN.pdf';
+    const fileName = targetLang === 'fr' ? 'Abdelilah_Elgallati_CV_FR.pdf' : 'Abdelilah_Elgallati_CV_EN.pdf';
     
     const link = document.createElement("a");
-    link.href = cvFile;
+    link.href = cvPath;
     link.download = fileName;
     document.body.appendChild(link);
     link.click();
@@ -50,13 +49,22 @@ export const About: React.FC = () => {
               </div>
               
               {/* CV Download */}
-              <button
-                onClick={handleDownloadCV}
-                className="inline-flex items-center gap-2 px-6 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
-              >
-                <Download size={16} />
-                <span>{t('hero.cv')}</span>
-              </button>
+              <div className="flex flex-col items-center gap-2">
+                <button
+                  onClick={() => handleDownloadCV()}
+                  className="inline-flex items-center gap-2 px-6 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                >
+                  <Download size={16} />
+                  <span>{t('hero.cv')}</span>
+                </button>
+                
+                <button 
+                  onClick={() => handleDownloadCV(language === 'en' ? 'fr' : 'en')}
+                  className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                >
+                  {t('hero.cvSecondary')}
+                </button>
+              </div>
             </div>
 
             {/* Main Content */}
