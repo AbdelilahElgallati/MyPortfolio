@@ -51,9 +51,6 @@ export const Skills: React.FC = () => {
             <h2 className="font-display text-3xl font-bold text-primary mb-3">
               {t('skills.title')}
             </h2>
-            <p className="text-secondary">
-              {t('skills.description')}
-            </p>
           </div>
 
           {/* Skills Grid */}

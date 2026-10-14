@@ -131,8 +131,7 @@ export const translations = {
                 ml_data: 'ML & Data Science',
                 backend_mlops: 'Backend & MLOps',
                 frontend: 'Frontend'
-            },
-            description: 'Core technologies for production-oriented AI systems'
+            }
         },
         projects: {
             title: 'Projects',
@@ -439,8 +438,7 @@ export const translations = {
                 ml_data: 'ML & Data Science',
                 backend_mlops: 'Backend & MLOps',
                 frontend: 'Frontend'
-            },
-            description: 'Technologies clés pour des systèmes IA orientés production'
+            }
         },
         projects: {
             title: 'Projets',
