@@ -158,7 +158,6 @@ export const translations = {
                 },
                 {
                     name: 'MovieRec: Adaptive Hybrid Recommender',
-                    featured: true,
                     description: 'Hybrid movie recommender on MovieLens 100K with TMDB enrichment. Recommendation weights adapt to how many ratings a user has (popularity, content-based, collaborative filtering) to handle cold start and progressive personalization.',
                     technologies: ['Python', 'Flask', 'React', 'TypeScript', 'MongoDB', 'TF-IDF', 'Collaborative Filtering'],
                     githubUrl: 'https://github.com/AbdelilahElgallati/Movie-Recommender-System-Project',
@@ -166,7 +165,6 @@ export const translations = {
                 },
                 {
                     name: 'Internship Aggregator',
-                    featured: true,
                     description: 'Platform that scrapes, stores and serves internship listings. Scheduled Scrapy crawlers, a FastAPI backend with paginated search, statistics, scrape-status and manual-trigger endpoints, and a Next.js frontend.',
                     technologies: ['FastAPI', 'Scrapy', 'Supabase', 'APScheduler', 'Next.js', 'Tailwind CSS'],
                     githubUrl: 'https://github.com/AbdelilahElgallati/Internship',
@@ -174,7 +172,6 @@ export const translations = {
                 },
                 {
                     name: 'AutoTollBooth',
-                    featured: true,
                     description: 'Computer-vision app that detects and tracks vehicles in traffic videos and counts inflow/outflow across a configurable line. Selectable YOLOv8 model sizes, adjustable confidence threshold and live annotated preview.',
                     technologies: ['YOLOv8', 'PyTorch', 'OpenCV', 'Streamlit'],
                     githubUrl: 'https://github.com/AbdelilahElgallati/AutoTollBooth',
@@ -435,7 +432,6 @@ export const translations = {
                 },
                 {
                     name: 'MovieRec : Recommandeur Hybride Adaptatif',
-                    featured: true,
                     description: 'Système de recommandation hybride sur MovieLens 100K enrichi via TMDB. Les pondérations s\'adaptent au nombre de notes de l\'utilisateur (popularité, contenu, filtrage collaboratif) pour gérer le démarrage à froid et la personnalisation progressive.',
                     technologies: ['Python', 'Flask', 'React', 'TypeScript', 'MongoDB', 'TF-IDF', 'Filtrage collaboratif'],
                     githubUrl: 'https://github.com/AbdelilahElgallati/Movie-Recommender-System-Project',
@@ -443,7 +439,6 @@ export const translations = {
                 },
                 {
                     name: 'Agrégateur de Stages',
-                    featured: true,
                     description: 'Plateforme qui collecte, stocke et expose des offres de stage. Crawlers Scrapy planifiés, backend FastAPI avec recherche paginée, statistiques, statut de collecte et déclenchement manuel, et frontend Next.js.',
                     technologies: ['FastAPI', 'Scrapy', 'Supabase', 'APScheduler', 'Next.js', 'Tailwind CSS'],
                     githubUrl: 'https://github.com/AbdelilahElgallati/Internship',
@@ -451,7 +446,6 @@ export const translations = {
                 },
                 {
                     name: 'AutoTollBooth',
-                    featured: true,
                     description: 'Application de vision par ordinateur qui détecte et suit les véhicules dans des vidéos de trafic et compte les entrées/sorties à travers une ligne configurable. Choix de la taille du modèle YOLOv8, seuil de confiance réglable et aperçu annoté en direct.',
                     technologies: ['YOLOv8', 'PyTorch', 'OpenCV', 'Streamlit'],
                     githubUrl: 'https://github.com/AbdelilahElgallati/AutoTollBooth',
