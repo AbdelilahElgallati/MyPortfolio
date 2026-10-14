@@ -52,7 +52,7 @@ export const Projects: React.FC = () => {
       problem: 'Students needed an intelligent assistant to query course materials across different formats (PDFs, Markdown, YouTube transcripts) with accurate source attribution and multilingual support, while maintaining context relevance and avoiding hallucinations.',
       approach: 'Built a RAG system using Sentence-Transformers for semantic embeddings (768D), FAISS for efficient vector search, and MMR for diversity. Implemented course-scoped retrieval with fallback mechanisms and integrated Llama 3.3 70B via Groq API.',
       architecture: 'FastAPI backend with React frontend. Document processing pipeline: text extraction → chunking → embedding (Sentence-Transformers) → FAISS indexing. Query processing: embedding → similarity search → MMR reranking → context assembly → LLM generation.',
-      results: 'Successfully deployed a functional RAG assistant capable of answering questions from multiple document types with proper source attribution. Handles course-specific queries with high accuracy and provides multilingual responses.',
+      results: 'Built a functional RAG assistant that answers questions from multiple document types with source attribution, course-specific retrieval, and multilingual responses.',
       improvements: 'Would add hybrid search (combining dense and sparse retrieval), implement query expansion for better recall, add conversation memory for multi-turn interactions, and deploy on Hugging Face Spaces for public access.',
       technologies: ['FastAPI', 'React', 'TypeScript', 'FAISS', 'Sentence-Transformers', 'Groq', 'Llama 3.3', 'LangChain', 'Streamlit'],
       githubUrl: 'https://github.com/AbdelilahElgallati/Course-Materials-RAG'

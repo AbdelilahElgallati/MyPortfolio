@@ -4,8 +4,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { translations } from '../utils/translations';
 
 export const Formations: React.FC = () => {
-  const { t } = useLanguage();
-  const { language } = useLanguage();
+  const { t, language } = useLanguage();
   const formations = t('formations.items', { returnObjects: true }) as readonly Formation[];
   const certifications = translations[language].formations.certifications;
 
