@@ -73,7 +73,7 @@ export const About: React.FC = () => {
               <div>
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                   AI & Data engineer with dual Master's degrees (Sorbonne Paris Nord & USMBA, July 2026). 
-                  I build production-ready AI systems - from 3.6M-sample ML pipelines to full-stack SaaS platforms with RAG and real-time features.
+                  I build production-oriented AI systems - from 3.6M-sample ML pipelines to full-stack SaaS platforms with RAG and real-time features.
                 </p>
               </div>
 

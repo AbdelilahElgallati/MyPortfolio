@@ -46,7 +46,7 @@ export const Skills: React.FC = () => {
               {t('skills.title')}
             </h2>
             <p className="text-gray-600 dark:text-gray-300">
-              Core technologies for production-ready AI systems
+              Core technologies for production-oriented AI systems
             </p>
           </div>
 

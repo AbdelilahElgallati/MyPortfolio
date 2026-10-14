@@ -11,9 +11,9 @@ export const translations = {
         },
         hero: {
             name: 'Abdelilah Elgallati',
-            title: 'AI, Machine Learning & Data Engineer',
-            tagline: 'Turning data into intelligent, production-ready products',
-            status: 'Master\'s graduate (July 2026) · Available immediately',
+            title: 'Junior AI Engineer & Data Scientist',
+            tagline: 'Turning data into intelligent, production-oriented products',
+            status: 'Available immediately - open to relocation',
             cta: 'Explore My Work',
             cv: 'Download CV',
             cvSecondary: 'Download in French'
@@ -300,9 +300,9 @@ export const translations = {
         },
         hero: {
             name: 'Abdelilah Elgallati',
-            title: 'Ingénieur IA, Machine Learning & Data',
-            tagline: 'Transformer les données en produits intelligents prêts pour la production',
-            status: 'Diplômé de Master (juillet 2026) · Disponible immédiatement',
+            title: 'Ingénieur IA Junior & Data Scientist',
+            tagline: 'Transformer les données en produits intelligents orientés production',
+            status: 'Disponible immédiatement - ouvert à la relocalisation',
             cta: 'Découvrir Mon Travail',
             cv: 'Télécharger le CV',
             cvSecondary: 'Télécharger en anglais'

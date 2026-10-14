@@ -67,7 +67,7 @@ export const Hero: React.FC = () => {
 
                     {/* Status */}
                     <div className="text-green-600 dark:text-green-400 font-medium animate-fade-in-delay-2">
-                        ✅ Available Immediately • Open to Relocation
+                        ✅ {t('hero.status')}
                     </div>
                     
                     {/* CTA Buttons */}
